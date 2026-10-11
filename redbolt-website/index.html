@@ -3,357 +3,421 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Red Bolt IT — Websites & Digital Products That Perform</title>
-  <meta name="description" content="Red Bolt IT is a web design and development agency building fast, beautiful websites, web apps and digital experiences for growing businesses." />
-  <meta name="theme-color" content="#0a0a14" />
+  <title>RedBolt IT — Websites, Software &amp; E-commerce from Bangladesh</title>
+  <meta name="description" content="RedBolt IT is a digital agency at Sheikh Hasina Software Technology Park, Jashore, building websites, custom software and e-commerce platforms." />
+  <meta name="theme-color" content="#0a0a0b" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"><span class="cursor-label">View</span></div>
 
-  <!-- Ambient gradient background -->
-  <div class="bg" aria-hidden="true">
-    <span class="blob blob-1"></span>
-    <span class="blob blob-2"></span>
-    <span class="blob blob-3"></span>
-    <span class="grid-overlay"></span>
-  </div>
-  <div class="cursor-glow" aria-hidden="true"></div>
-
-  <!-- NAV -->
+  <!-- ============ NAV ============ -->
   <header class="nav" id="nav">
-    <div class="container nav-inner">
-      <a href="#top" class="logo" aria-label="Red Bolt IT home">
-        <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true">
-          <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff3d5a"/><stop offset="1" stop-color="#ff8a3d"/></linearGradient></defs>
-          <rect width="32" height="32" rx="9" fill="url(#lg)"/>
-          <path d="M18.5 5 9 18h6l-1.5 9L23 14h-6z" fill="#fff"/>
-        </svg>
-        <span>Red Bolt <b>IT</b></span>
-      </a>
-      <nav aria-label="Primary">
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#services">Services</a></li>
-          <li><a href="#work">Work</a></li>
-          <li><a href="#process">Process</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ul>
-      </nav>
-      <a href="#contact" class="btn btn-primary btn-sm nav-cta">Start a project</a>
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
-        <span></span><span></span>
-      </button>
-    </div>
+    <a href="#top" class="logo" aria-label="RedBolt IT home">
+      <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff3a2e"/><stop offset="1" stop-color="#ff7a1a"/></linearGradient></defs>
+        <rect width="32" height="32" rx="8" fill="url(#lg)"/>
+        <path d="M18.5 5 9 18h6l-1.5 9L23 14h-6z" fill="#fff"/>
+      </svg>
+      <span>RedBolt<em>IT</em></span>
+    </a>
+    <nav class="nav-pill" aria-label="Primary">
+      <ul id="navLinks">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="btn btn-light magnetic nav-cta"><span>Let's talk</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span>
+    </button>
   </header>
 
+  <div class="mobile-menu" id="mobileMenu" hidden>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="mailto:hello@redboltit.com" class="mobile-mail">hello@redboltit.com</a>
+  </div>
+
   <main id="main">
-    <!-- HERO -->
+    <!-- ============ HERO ============ -->
     <section class="hero" id="top">
-      <div class="container hero-inner">
-        <div class="hero-copy">
-          <span class="pill reveal"><span class="dot"></span> Now booking projects for this quarter</span>
-          <h1 class="reveal">
-            We build websites that<br />
-            <span class="gradient-text" id="rotator">strike like lightning.</span>
-          </h1>
-          <p class="lead reveal">
-            Red Bolt IT is a design &amp; development studio crafting fast, conversion-focused websites,
-            web apps and brands for ambitious businesses — from first sketch to launch and beyond.
+      <div class="wrap">
+        <div class="hero-meta fade-up">
+          <span class="status"><i></i> Available for new projects</span>
+          <span class="mono">Software Technology Park — Jashore, BD</span>
+        </div>
+
+        <h1 class="hero-title" aria-label="We build digital products that strike like lightning.">
+          <span class="line"><span>We build digital</span></span>
+          <span class="line"><span>products that</span></span>
+          <span class="line"><span class="serif accent" id="rotator">strike like lightning.</span></span>
+        </h1>
+
+        <div class="hero-foot">
+          <p class="hero-lead fade-up">
+            RedBolt IT designs and engineers fast websites, custom software and e-commerce
+            platforms for businesses that want to move faster — from first sketch to launch and beyond.
           </p>
-          <div class="hero-actions reveal">
-            <a href="#contact" class="btn btn-primary">
-              Get a free consultation
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          <div class="hero-cta fade-up">
+            <a href="#contact" class="btn btn-accent magnetic"><span>Start a project</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
             </a>
-            <a href="#work" class="btn btn-ghost">See our work</a>
-          </div>
-          <ul class="hero-trust reveal" aria-label="Highlights">
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg> Pixel-perfect design</li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg> 90+ Lighthouse scores</li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg> SEO-ready builds</li>
-          </ul>
-        </div>
-
-        <!-- Hero visual: layered glass cards -->
-        <div class="hero-visual reveal" aria-hidden="true">
-          <div class="glass browser tilt">
-            <div class="browser-bar"><i></i><i></i><i></i><span>yourbrand.com</span></div>
-            <div class="browser-body">
-              <div class="mock-hero"></div>
-              <div class="mock-row"><span></span><span></span><span></span></div>
-              <div class="mock-lines"><span></span><span></span><span class="short"></span></div>
-            </div>
-          </div>
-          <div class="glass float-card card-a">
-            <div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></div>
-            <div><small>Conversion rate</small><strong>+148%</strong></div>
-          </div>
-          <div class="glass float-card card-b">
-            <div class="score"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5"/><circle class="arc" cx="18" cy="18" r="15.5"/></svg><b>98</b></div>
-            <div><small>Performance</small><strong>Lighthouse</strong></div>
-          </div>
-          <div class="glass float-card card-c">
-            <code>&lt;Launch ready /&gt;</code>
+            <a href="#work" class="link-underline">See our work</a>
           </div>
         </div>
       </div>
 
-      <!-- Tech marquee -->
-      <div class="marquee" aria-label="Technologies we work with">
+      <!-- Showcase panel: aurora gradient + glass UI -->
+      <div class="wrap">
+        <div class="showcase" id="showcase" aria-hidden="true">
+          <div class="aurora"><span></span><span></span><span></span></div>
+          <div class="sc-window glass" data-depth="0.4">
+            <div class="sc-bar"><i></i><i></i><i></i><span>amarfinance.app/dashboard</span></div>
+            <div class="sc-body">
+              <aside class="sc-side"><b></b><b></b><b></b><b></b><b></b></aside>
+              <div class="sc-main">
+                <div class="sc-kpis">
+                  <div><small>Revenue</small><strong>৳ 4.82M</strong><em>+18.2%</em></div>
+                  <div><small>Orders</small><strong>1,284</strong><em>+9.4%</em></div>
+                  <div><small>Stock items</small><strong>3,517</strong><em class="down">−2.1%</em></div>
+                </div>
+                <div class="sc-chart">
+                  <svg viewBox="0 0 400 120" preserveAspectRatio="none">
+                    <defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff5a2e" stop-opacity=".55"/><stop offset="1" stop-color="#ff5a2e" stop-opacity="0"/></linearGradient></defs>
+                    <path class="area" d="M0 95 C40 88 60 70 100 72 S160 40 200 48 S260 20 300 30 S360 12 400 8 V120 H0Z" fill="url(#cg)"/>
+                    <path class="stroke" d="M0 95 C40 88 60 70 100 72 S160 40 200 48 S260 20 300 30 S360 12 400 8" fill="none" stroke="#ff7a1a" stroke-width="2.5"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sc-chip glass chip-1" data-depth="1.1">
+            <span class="chip-ico"><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg></span>
+            <div><small>Lighthouse</small><strong>98 / 100</strong></div>
+          </div>
+          <div class="sc-chip glass chip-2" data-depth="0.8">
+            <span class="chip-ico alt"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/></svg></span>
+            <div><small>New order</small><strong>৳ 2,450 received</strong></div>
+          </div>
+          <div class="sc-chip glass chip-3" data-depth="1.4">
+            <code>deploy → production ✓</code>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CLIENTS ============ -->
+    <section class="clients" aria-label="Clients">
+      <p class="mono label">Trusted by teams across Bangladesh</p>
+      <div class="marquee">
         <div class="marquee-track">
-          <span>React</span><span>Next.js</span><span>WordPress</span><span>Laravel</span><span>Shopify</span><span>Node.js</span><span>Tailwind CSS</span><span>Figma</span><span>Flutter</span><span>Vue</span>
-          <span aria-hidden="true">React</span><span aria-hidden="true">Next.js</span><span aria-hidden="true">WordPress</span><span aria-hidden="true">Laravel</span><span aria-hidden="true">Shopify</span><span aria-hidden="true">Node.js</span><span aria-hidden="true">Tailwind CSS</span><span aria-hidden="true">Figma</span><span aria-hidden="true">Flutter</span><span aria-hidden="true">Vue</span>
+          <span>ICT Division</span><span>BHTPA</span><span>Islamic Bank</span><span>Arts of Color</span><span>Goodiebox Online</span><span>Bisuddho Ahar</span><span>Alor Chithi</span><span>Abacus Soft</span><span>Uddokta Super Shop</span><span>Jashore Startup</span>
+          <span aria-hidden="true">ICT Division</span><span aria-hidden="true">BHTPA</span><span aria-hidden="true">Islamic Bank</span><span aria-hidden="true">Arts of Color</span><span aria-hidden="true">Goodiebox Online</span><span aria-hidden="true">Bisuddho Ahar</span><span aria-hidden="true">Alor Chithi</span><span aria-hidden="true">Abacus Soft</span><span aria-hidden="true">Uddokta Super Shop</span><span aria-hidden="true">Jashore Startup</span>
         </div>
       </div>
     </section>
 
-    <!-- SERVICES -->
-    <section class="section" id="services">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">What we do</span>
-          <h2>Everything you need to <span class="gradient-text">win online</span></h2>
-          <p>One team for strategy, design, engineering and growth — so nothing gets lost in the hand-off.</p>
-        </div>
-
-        <div class="bento">
-          <article class="glass card service big reveal">
-            <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8"/></svg></div>
-            <h3>Website Design &amp; Development</h3>
-            <p>Custom, responsive websites engineered for speed, SEO and conversion. Built on modern stacks or the CMS your team already loves.</p>
-            <ul class="tags"><li>Next.js</li><li>WordPress</li><li>Webflow</li><li>Headless CMS</li></ul>
-            <div class="service-art" aria-hidden="true"><span></span><span></span><span></span></div>
-          </article>
-          <article class="glass card service reveal">
-            <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 3l9 4.5-9 4.5L3 7.5z"/><path d="M3 12l9 4.5 9-4.5M3 16.5 12 21l9-4.5"/></svg></div>
-            <h3>UI/UX Design</h3>
-            <p>Research-led interfaces, design systems and prototypes that users understand instantly.</p>
-          </article>
-          <article class="glass card service reveal">
-            <div class="icon"><svg viewBox="0 0 24 24"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
-            <h3>Web Applications</h3>
-            <p>Dashboards, portals and SaaS products with clean architecture and room to scale.</p>
-          </article>
-          <article class="glass card service reveal">
-            <div class="icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.7 12.4a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 8H6"/></svg></div>
-            <h3>E-commerce</h3>
-            <p>Shopify and WooCommerce stores optimised for checkout, speed and repeat customers.</p>
-          </article>
-          <article class="glass card service reveal">
-            <div class="icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
-            <h3>SEO &amp; Growth</h3>
-            <p>Technical SEO, content strategy and analytics that turn traffic into qualified leads.</p>
-          </article>
-          <article class="glass card service reveal">
-            <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg></div>
-            <h3>Care &amp; Maintenance</h3>
-            <p>Hosting, security updates, backups and monitoring — so your site never misses a beat.</p>
-          </article>
+    <!-- ============ STATEMENT ============ -->
+    <section class="statement" id="about">
+      <div class="wrap statement-grid">
+        <p class="mono label">(01) — About</p>
+        <div>
+          <p class="statement-text" data-words>
+            We're a digital agency based at Sheikh Hasina Software Technology Park, Jashore.
+            Designers and engineers under one roof, building websites, software and online stores
+            that look sharp, load fast and actually grow your business.
+          </p>
+          <!-- Figures derived from the public client list / products. Update with real totals. -->
+          <div class="facts">
+            <div class="fact"><strong data-count="10" data-suffix="+">0</strong><span>Clients served</span></div>
+            <div class="fact"><strong data-count="3" data-suffix="">0</strong><span>In-house SaaS products</span></div>
+            <div class="fact"><strong data-count="6" data-suffix="">0</strong><span>Core services</span></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- STATS -->
-    <!-- PLACEHOLDER: replace these numbers with Red Bolt IT's real figures before going live. -->
-    <section class="stats-wrap" id="about">
-      <div class="container">
-        <div class="glass stats reveal">
-          <div class="stat"><strong data-count="120" data-suffix="+">0</strong><span>Projects delivered</span></div>
-          <div class="stat"><strong data-count="60" data-suffix="+">0</strong><span>Happy clients</span></div>
-          <div class="stat"><strong data-count="8" data-suffix="">0</strong><span>Countries served</span></div>
-          <div class="stat"><strong data-count="98" data-suffix="%">0</strong><span>Client retention</span></div>
+    <!-- ============ SERVICES ============ -->
+    <section class="services" id="services">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="mono label">(02) — Services</p>
+          <h2 class="reveal-title">Everything you need to <span class="serif accent">win online.</span></h2>
         </div>
+
+        <ul class="svc-list">
+          <li class="svc">
+            <span class="svc-num mono">01</span>
+            <h3>Website Development</h3>
+            <p>Custom, responsive websites built for speed, SEO and conversion — on modern stacks or WordPress.</p>
+            <span class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+          </li>
+          <li class="svc">
+            <span class="svc-num mono">02</span>
+            <h3>Software Development</h3>
+            <p>Inventory, school management and point-of-sale systems engineered around how your business really works.</p>
+            <span class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+          </li>
+          <li class="svc">
+            <span class="svc-num mono">03</span>
+            <h3>E-commerce Development</h3>
+            <p>WooCommerce and custom stores optimised for checkout, speed and repeat customers.</p>
+            <span class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+          </li>
+          <li class="svc">
+            <span class="svc-num mono">04</span>
+            <h3>HRMS &amp; Business Systems</h3>
+            <p>HR, payroll and operations platforms that replace spreadsheets with one clean dashboard.</p>
+            <span class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+          </li>
+          <li class="svc">
+            <span class="svc-num mono">05</span>
+            <h3>Digital Marketing</h3>
+            <p>SEO, social and email campaigns that turn traffic into qualified leads and sales.</p>
+            <span class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+          </li>
+          <li class="svc">
+            <span class="svc-num mono">06</span>
+            <h3>Tech Support</h3>
+            <p>Hosting, updates, backups and monitoring — so your systems never miss a beat.</p>
+            <span class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+          </li>
+        </ul>
       </div>
     </section>
 
-    <!-- WORK -->
-    <!-- PLACEHOLDER: swap these sample projects for real case studies and screenshots. -->
-    <section class="section" id="work">
-      <div class="container">
-        <div class="section-head split reveal">
+    <!-- ============ PRODUCTS ============ -->
+    <section class="products" id="products">
+      <div class="wrap">
+        <div class="sec-head split">
           <div>
-            <span class="eyebrow">Selected work</span>
-            <h2>Projects we're <span class="gradient-text">proud of</span></h2>
+            <p class="mono label">(03) — Products</p>
+            <h2 class="reveal-title">Software we built <span class="serif accent">&amp; run.</span></h2>
           </div>
-          <div class="filters" role="tablist" aria-label="Filter projects">
-            <button class="chip active" data-filter="all" role="tab" aria-selected="true">All</button>
-            <button class="chip" data-filter="web" role="tab" aria-selected="false">Websites</button>
-            <button class="chip" data-filter="app" role="tab" aria-selected="false">Web apps</button>
-            <button class="chip" data-filter="shop" role="tab" aria-selected="false">E-commerce</button>
-          </div>
+          <p class="sec-sub">Our own SaaS products — proof that we don't just build software, we operate it every day.</p>
         </div>
 
-        <div class="work-grid">
-          <a href="#contact" class="work-card reveal" data-cat="web">
-            <div class="work-thumb t1"><div class="thumb-ui"><span></span><span></span><span></span></div></div>
-            <div class="work-meta glass">
-              <div><h3>Corporate Website</h3><p>Brand refresh · Next.js · SEO</p></div>
-              <span class="arrow"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        <div class="prod-grid">
+          <article class="prod prod-lg tilt-card">
+            <div class="prod-bg g1"></div>
+            <div class="prod-ui glass">
+              <div class="pu-row"><b></b><b class="w40"></b></div>
+              <div class="pu-bars"><i style="--h:40%"></i><i style="--h:65%"></i><i style="--h:52%"></i><i style="--h:80%"></i><i style="--h:70%"></i><i style="--h:95%"></i><i style="--h:84%"></i></div>
             </div>
+            <div class="prod-info">
+              <span class="tag">Inventory management</span>
+              <h3>Amar Finance</h3>
+              <p>Track stock, sales and accounts in real time across every branch.</p>
+            </div>
+          </article>
+          <article class="prod tilt-card">
+            <div class="prod-bg g2"></div>
+            <div class="prod-ui glass small">
+              <div class="pu-avatars"><i></i><i></i><i></i><i></i></div>
+              <div class="pu-row"><b></b><b class="w60"></b></div>
+            </div>
+            <div class="prod-info">
+              <span class="tag">School management</span>
+              <h3>Hello Campus</h3>
+              <p>Admissions, attendance, results and fees — one platform for the whole school.</p>
+            </div>
+          </article>
+          <article class="prod tilt-card">
+            <div class="prod-bg g3"></div>
+            <div class="prod-ui glass small">
+              <div class="pu-mail"><i></i><div><b></b><b class="w60"></b></div></div>
+              <div class="pu-mail"><i></i><div><b></b><b class="w40"></b></div></div>
+            </div>
+            <div class="prod-info">
+              <span class="tag">Email marketing</span>
+              <h3>Bolt Mail</h3>
+              <p>Design, send and measure campaigns that land in the inbox, not spam.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WORK (horizontal scroll) ============ -->
+    <section class="work" id="work">
+      <div class="work-pin">
+        <div class="wrap work-head">
+          <p class="mono label">(04) — Selected work</p>
+          <h2 class="reveal-title">Projects we're <span class="serif accent">proud of.</span></h2>
+        </div>
+        <div class="work-track" id="workTrack">
+          <a href="#contact" class="work-card" data-cursor>
+            <div class="wc-media w1">
+              <div class="wc-ui"><span></span><span></span><span></span></div>
+            </div>
+            <div class="wc-meta"><h3>Fariea International</h3><span class="mono">Corporate website</span></div>
           </a>
-          <a href="#contact" class="work-card reveal" data-cat="app">
-            <div class="work-thumb t2"><div class="thumb-ui dash"><span></span><span></span><span></span></div></div>
-            <div class="work-meta glass">
-              <div><h3>Operations Dashboard</h3><p>SaaS · React · Node.js</p></div>
-              <span class="arrow"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+          <a href="#contact" class="work-card" data-cursor>
+            <div class="wc-media w2">
+              <div class="wc-ui shop"><span></span><span></span><span></span></div>
             </div>
+            <div class="wc-meta"><h3>WooCommerce Store</h3><span class="mono">E-commerce development</span></div>
           </a>
-          <a href="#contact" class="work-card reveal" data-cat="shop">
-            <div class="work-thumb t3"><div class="thumb-ui shop"><span></span><span></span><span></span></div></div>
-            <div class="work-meta glass">
-              <div><h3>Fashion Storefront</h3><p>Shopify · Custom theme</p></div>
-              <span class="arrow"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+          <a href="#products" class="work-card" data-cursor>
+            <div class="wc-media w3">
+              <div class="wc-ui dash"><span></span><span></span><span></span></div>
             </div>
+            <div class="wc-meta"><h3>Hello Campus</h3><span class="mono">SaaS · School management</span></div>
           </a>
-          <a href="#contact" class="work-card reveal" data-cat="web">
-            <div class="work-thumb t4"><div class="thumb-ui"><span></span><span></span><span></span></div></div>
-            <div class="work-meta glass">
-              <div><h3>Healthcare Clinic</h3><p>WordPress · Booking system</p></div>
-              <span class="arrow"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+          <a href="#products" class="work-card" data-cursor>
+            <div class="wc-media w4">
+              <div class="wc-ui dash"><span></span><span></span><span></span></div>
             </div>
+            <div class="wc-meta"><h3>Amar Finance</h3><span class="mono">SaaS · Inventory</span></div>
+          </a>
+          <a href="#contact" class="work-card work-cta">
+            <span class="serif">Your project<br />could be next.</span>
+            <span class="btn btn-light"><span>Start a project</span></span>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- PROCESS -->
-    <section class="section" id="process">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">How we work</span>
-          <h2>A clear process, <span class="gradient-text">zero surprises</span></h2>
-          <p>Fixed milestones, weekly demos and a single point of contact from kickoff to launch.</p>
+    <!-- ============ PROCESS (sticky stacking cards) ============ -->
+    <section class="process" id="process">
+      <div class="wrap process-grid">
+        <div class="process-intro">
+          <p class="mono label">(05) — Process</p>
+          <h2 class="reveal-title">A clear process, <span class="serif accent">zero surprises.</span></h2>
+          <p class="sec-sub">Fixed milestones, regular demos and a single point of contact from kickoff to launch.</p>
         </div>
-        <ol class="process">
-          <li class="glass step reveal">
-            <span class="step-num">01</span>
+        <ol class="stack">
+          <li class="stack-card" style="--i:0">
+            <span class="mono">Step 01</span>
             <h3>Discover</h3>
-            <p>We dig into your goals, audience and competitors to define what success looks like.</p>
+            <p>We dig into your goals, audience and competitors to define exactly what success looks like.</p>
+            <span class="big-num" aria-hidden="true">01</span>
           </li>
-          <li class="glass step reveal">
-            <span class="step-num">02</span>
+          <li class="stack-card" style="--i:1">
+            <span class="mono">Step 02</span>
             <h3>Design</h3>
-            <p>Wireframes, then high-fidelity designs and an interactive prototype you can click through.</p>
+            <p>Wireframes, then high-fidelity designs and a clickable prototype you can test before we build.</p>
+            <span class="big-num" aria-hidden="true">02</span>
           </li>
-          <li class="glass step reveal">
-            <span class="step-num">03</span>
+          <li class="stack-card" style="--i:2">
+            <span class="mono">Step 03</span>
             <h3>Develop</h3>
             <p>Clean, tested code with staging previews so you watch your product come to life.</p>
+            <span class="big-num" aria-hidden="true">03</span>
           </li>
-          <li class="glass step reveal">
-            <span class="step-num">04</span>
-            <h3>Launch &amp; Grow</h3>
-            <p>Go-live, analytics, SEO and ongoing support to keep improving after launch.</p>
+          <li class="stack-card" style="--i:3">
+            <span class="mono">Step 04</span>
+            <h3>Launch &amp; grow</h3>
+            <p>Go-live, analytics, SEO and ongoing support to keep improving long after launch.</p>
+            <span class="big-num" aria-hidden="true">04</span>
           </li>
         </ol>
       </div>
     </section>
 
-    <!-- WHY US -->
-    <section class="section why">
-      <div class="container why-inner">
-        <div class="why-copy reveal">
-          <span class="eyebrow">Why Red Bolt IT</span>
-          <h2>Big-agency quality.<br /><span class="gradient-text">Startup speed.</span></h2>
-          <p>We're a focused team of designers and engineers who care about the details — and about your results. You get senior talent on every project, transparent pricing and code you fully own.</p>
-          <a href="#contact" class="btn btn-primary">Let's talk</a>
-        </div>
-        <div class="why-list">
-          <div class="glass why-item reveal">
-            <div class="icon sm"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg></div>
-            <div><h3>Fast turnaround</h3><p>Most websites launch in 3–6 weeks, without cutting corners.</p></div>
-          </div>
-          <div class="glass why-item reveal">
-            <div class="icon sm"><svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-            <div><h3>Transparent pricing</h3><p>Fixed quotes and clear scopes. No hidden fees, ever.</p></div>
-          </div>
-          <div class="glass why-item reveal">
-            <div class="icon sm"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-            <div><h3>Always reachable</h3><p>Direct access to your project lead on Slack, WhatsApp or email.</p></div>
-          </div>
-          <div class="glass why-item reveal">
-            <div class="icon sm"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-            <div><h3>You own everything</h3><p>Full source code, design files and accounts handed over at launch.</p></div>
-          </div>
+    <!-- ============ WHY ============ -->
+    <section class="why">
+      <div class="wrap">
+        <h2 class="why-title reveal-title">Big-agency quality.<br /><span class="serif accent">Startup speed.</span></h2>
+        <div class="why-grid">
+          <div class="why-item"><span class="mono">/01</span><h3>Fast turnaround</h3><p>Tight, milestone-based delivery without cutting corners.</p></div>
+          <div class="why-item"><span class="mono">/02</span><h3>Transparent pricing</h3><p>Fixed quotes and clear scopes. No hidden fees.</p></div>
+          <div class="why-item"><span class="mono">/03</span><h3>Always reachable</h3><p>Talk directly to your project lead on WhatsApp, phone or email.</p></div>
+          <div class="why-item"><span class="mono">/04</span><h3>Built to last</h3><p>Clean, documented code and support plans after launch.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="section" id="faq">
-      <div class="container narrow">
-        <div class="section-head reveal">
-          <span class="eyebrow">FAQ</span>
-          <h2>Questions, <span class="gradient-text">answered</span></h2>
+    <!-- ============ FAQ ============ -->
+    <section class="faq" id="faq">
+      <div class="wrap faq-grid">
+        <div class="faq-intro">
+          <p class="mono label">(06) — FAQ</p>
+          <h2 class="reveal-title">Questions, <span class="serif accent">answered.</span></h2>
+          <p class="sec-sub">Still curious? <a class="link-underline" href="#contact">Ask us anything</a>.</p>
         </div>
-        <div class="faq">
-          <details class="glass reveal" open>
+        <div class="faq-list">
+          <details open>
             <summary>How much does a website cost?<span class="plus" aria-hidden="true"></span></summary>
-            <p>Every project is scoped individually. After a free consultation we send a fixed quote with clear deliverables and timelines — no surprises.</p>
+            <div class="faq-a"><p>Every project is scoped individually. After a free consultation we send a fixed quote with clear deliverables and timelines — no surprises.</p></div>
           </details>
-          <details class="glass reveal">
-            <summary>How long does a project take?<span class="plus" aria-hidden="true"></span></summary>
-            <p>A marketing website typically takes 3–6 weeks. Web apps and e-commerce stores depend on scope; we'll share a milestone plan up front.</p>
+          <details>
+            <summary>Do you build custom software?<span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>Yes. We build inventory, school management, point-of-sale and HR systems — and we run our own SaaS products, Amar Finance, Hello Campus and Bolt Mail.</p></div>
           </details>
-          <details class="glass reveal">
+          <details>
             <summary>Can you redesign my existing website?<span class="plus" aria-hidden="true"></span></summary>
-            <p>Absolutely. We audit your current site, keep what works, migrate your content and preserve your SEO rankings during the move.</p>
+            <div class="faq-a"><p>Absolutely. We audit your current site, keep what works, migrate your content and protect your SEO rankings during the move.</p></div>
           </details>
-          <details class="glass reveal">
+          <details>
             <summary>Do you offer support after launch?<span class="plus" aria-hidden="true"></span></summary>
-            <p>Yes — our care plans cover hosting, updates, backups, security monitoring and small content changes every month.</p>
+            <div class="faq-a"><p>Yes — our tech support covers hosting, updates, backups, security monitoring and content changes.</p></div>
+          </details>
+          <details>
+            <summary>Do you work with clients outside Bangladesh?<span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>We do. We work remotely with clients anywhere, with calls scheduled in your time zone.</p></div>
           </details>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="glass contact reveal">
-          <div class="contact-copy">
-            <span class="eyebrow">Start a project</span>
-            <h2>Ready to <span class="gradient-text">bolt ahead?</span></h2>
-            <p>Tell us about your project and we'll get back within one business day with ideas and a plan.</p>
-            <!-- PLACEHOLDER: confirm contact details -->
-            <ul class="contact-list">
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg><a href="mailto:hello@redboltit.com">hello@redboltit.com</a></li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s-8-6.5-8-13a8 8 0 0 1 16 0c0 6.5-8 13-8 13z"/><circle cx="12" cy="9" r="3"/></svg><span>Dhaka, Bangladesh · Working worldwide</span></li>
-            </ul>
-          </div>
-          <form class="form" id="contactForm" novalidate>
+    <!-- ============ CONTACT ============ -->
+    <section class="contact" id="contact">
+      <div class="contact-aurora" aria-hidden="true"><span></span><span></span></div>
+      <div class="wrap">
+        <p class="mono label">(07) — Contact</p>
+        <h2 class="contact-title">Ready to <span class="serif accent">bolt ahead?</span></h2>
+        <a href="mailto:hello@redboltit.com" class="mail-link">hello@redboltit.com
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+        </a>
+
+        <div class="contact-grid">
+          <ul class="contact-info">
+            <li><span class="mono">Phone / WhatsApp</span><a href="tel:+8801305415471">+880 1305-415471</a></li>
+            <li><span class="mono">Office</span><span>Sheikh Hasina Software Technology Park,<br />Jashore, Bangladesh</span></li>
+            <li><span class="mono">Reply time</span><span>Within one business day</span></li>
+          </ul>
+
+          <form class="form glass" id="contactForm" novalidate>
             <div class="field">
+              <input id="name" name="name" type="text" autocomplete="name" placeholder=" " required />
               <label for="name">Your name</label>
-              <input id="name" name="name" type="text" autocomplete="name" required />
               <small class="error" aria-live="polite"></small>
             </div>
             <div class="field">
+              <input id="email" name="email" type="email" autocomplete="email" placeholder=" " required />
               <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" required />
               <small class="error" aria-live="polite"></small>
             </div>
+            <fieldset class="field full chips">
+              <legend>I'm interested in</legend>
+              <label><input type="checkbox" name="service" value="website" /><span>Website</span></label>
+              <label><input type="checkbox" name="service" value="software" /><span>Software</span></label>
+              <label><input type="checkbox" name="service" value="ecommerce" /><span>E-commerce</span></label>
+              <label><input type="checkbox" name="service" value="marketing" /><span>Marketing</span></label>
+              <label><input type="checkbox" name="service" value="support" /><span>Support</span></label>
+            </fieldset>
             <div class="field full">
-              <label for="service">What do you need?</label>
-              <select id="service" name="service">
-                <option>Website design &amp; development</option>
-                <option>Website redesign</option>
-                <option>Web application</option>
-                <option>E-commerce store</option>
-                <option>SEO &amp; growth</option>
-                <option>Something else</option>
-              </select>
-            </div>
-            <div class="field full">
-              <label for="message">Project details</label>
-              <textarea id="message" name="message" rows="4" required></textarea>
+              <textarea id="message" name="message" rows="3" placeholder=" " required></textarea>
+              <label for="message">Tell us about your project</label>
               <small class="error" aria-live="polite"></small>
             </div>
-            <button type="submit" class="btn btn-primary full">
-              Send message
+            <button type="submit" class="btn btn-accent full magnetic"><span>Send message</span>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </button>
             <p class="form-status" role="status" aria-live="polite"></p>
@@ -363,25 +427,23 @@
     </section>
   </main>
 
+  <!-- ============ FOOTER ============ -->
   <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <a href="#top" class="logo">
-          <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="url(#lg)"/><path d="M18.5 5 9 18h6l-1.5 9L23 14h-6z" fill="#fff"/></svg>
-          <span>Red Bolt <b>IT</b></span>
-        </a>
-        <p>Design &amp; development studio building fast, beautiful digital products.</p>
+    <div class="wrap">
+      <div class="footer-top">
+        <p class="footer-tag">Websites, software &amp; e-commerce<br />built in Jashore, used worldwide.</p>
+        <div class="footer-cols">
+          <div><h4 class="mono">Explore</h4><a href="#services">Services</a><a href="#products">Products</a><a href="#work">Work</a><a href="#process">Process</a></div>
+          <!-- PLACEHOLDER: add LinkedIn / Instagram / Behance URLs -->
+          <div><h4 class="mono">Social</h4><a href="https://www.facebook.com/redboltit" target="_blank" rel="noopener">Facebook</a><a href="#">LinkedIn</a><a href="#">Instagram</a><a href="#">Behance</a></div>
+          <div><h4 class="mono">Contact</h4><a href="mailto:hello@redboltit.com">hello@redboltit.com</a><a href="tel:+8801305415471">+880 1305-415471</a></div>
+        </div>
       </div>
-      <div class="footer-cols">
-        <div><h4>Services</h4><a href="#services">Web development</a><a href="#services">UI/UX design</a><a href="#services">E-commerce</a><a href="#services">SEO</a></div>
-        <div><h4>Company</h4><a href="#about">About</a><a href="#work">Work</a><a href="#process">Process</a><a href="#contact">Contact</a></div>
-        <!-- PLACEHOLDER: add real social profile URLs -->
-        <div><h4>Follow</h4><a href="#">LinkedIn</a><a href="#">Facebook</a><a href="#">Behance</a><a href="#">Dribbble</a></div>
+      <div class="wordmark" aria-hidden="true">RedBolt</div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> RedBolt IT. All rights reserved.</span>
+        <a href="#top" class="link-underline">Back to top ↑</a>
       </div>
-    </div>
-    <div class="container footer-bottom">
-      <span>© <span id="year"></span> Red Bolt IT. All rights reserved.</span>
-      <a href="#top" class="to-top">Back to top ↑</a>
     </div>
   </footer>
 
