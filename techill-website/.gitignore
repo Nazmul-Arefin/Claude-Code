@@ -1,0 +1,6 @@
+# Customer uploads, generated media and server logs live only on the server.
+uploads/*
+!uploads/.htaccess
+media/*
+!media/.htaccess
+error_log
