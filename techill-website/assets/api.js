@@ -1170,6 +1170,19 @@ window.TechillAPI = (() => {
   }
 
   /* ---------- public interface ---------- */
+  /* Meta Pixel: server copies of browser events go to api.php?action=fb_event as a beacon */
+  let pixelSent = false;
+  const fbEventId = () => "ev-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 10);
+  function fbServer(event, d, id) {
+    if (demo) return;
+    const f = new FormData();
+    f.append("event", event); f.append("event_id", id); f.append("url", location.href.split("#")[0]);
+    if (d.value != null) f.append("value", d.value);
+    if (d.content_name) f.append("content_name", d.content_name);
+    if (d.content_ids && d.content_ids[0]) f.append("content_id", d.content_ids[0]);
+    try { navigator.sendBeacon ? navigator.sendBeacon("api.php?action=fb_event", f) : fetch("api.php?action=fb_event", {method: "POST", body: f, keepalive: true}); } catch (e) {}
+  }
+
   async function run(action, args, httpCall) {
     await ready;
     if (demo) { await wait(120); return mock[action](args); }
@@ -1274,16 +1287,30 @@ window.TechillAPI = (() => {
     marketingSettings: () => run("marketing_settings", {}, () => http("marketing_settings")),
     saveMarketing: data => run("marketing_save", data, () => post("marketing_save", data)),
     capiTest: () => run("capi_test", {}, () => post("capi_test", {})),
-    /* Facebook Pixel: load once with the admin's Pixel ID, then fb("Purchase", {...}, eventId) */
+    /* Facebook Pixel: page.php normally writes the base code into <head> (window.techillPixel); this
+       loads it only when that did not happen. Then fb("Purchase", {...}, eventId) */
     initPixel(id) {
-      if (!id || window.fbq) return;
+      if (!id || pixelSent) return;
+      pixelSent = true;
+      const pv = window.techillPixel && window.techillPixel.pv;
+      if (pv) { fbServer("PageView", {}, pv); return; }
+      if (window.fbq) return;   // a Pixel pasted into the custom head code
       const n = window.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
       if (!window._fbq) window._fbq = n;
       n.push = n; n.loaded = true; n.version = "2.0"; n.queue = [];
       const sc = document.createElement("script"); sc.async = true; sc.src = "https://connect.facebook.net/en_US/fbevents.js"; document.head.appendChild(sc);
-      window.fbq("init", String(id)); window.fbq("track", "PageView");
+      const ev = fbEventId();
+      window.fbq("init", String(id)); window.fbq("track", "PageView", {}, {eventID: ev});
+      fbServer("PageView", {}, ev);
     },
-    fb(event, data = {}, eventID) { try { if (window.fbq) window.fbq("track", event, {currency: "BDT", ...data}, eventID ? {eventID} : undefined); } catch (e) {} },
+    /* Browser event plus the same event from the server (Conversions API) under one event ID, so Meta counts it once.
+       Purchase is sent by the server itself when the order or payment is saved, with the order code as its ID. */
+    fb(event, data = {}, eventID) {
+      if (!window.fbq) return;
+      const id = eventID || fbEventId(), d = {currency: "BDT", ...data};
+      try { window.fbq("track", event, d, {eventID: id}); } catch (e) {}
+      if (event !== "Purchase") fbServer(event, d, id);
+    },
     async exportUrl() { await ready; return demo ? mock.exportCSV() : "api.php?action=export_orders"; },
     fileUrl: id => demo ? mock.fileUrl(id) : "api.php?action=file&id=" + encodeURIComponent(id),
     /* swaps the <link rel="icon"> hrefs after new site settings arrive */
@@ -1371,3 +1398,5 @@ window.TechillAPI = (() => {
     supportWidget
   };
 })();
+/* Pages with the Pixel from page.php but no initPixel() call of their own (the legal pages) still send the server PageView. */
+if (window.techillPixel) TechillAPI.init().then(() => TechillAPI.initPixel(window.techillPixel.id));

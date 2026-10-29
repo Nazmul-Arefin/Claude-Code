@@ -97,6 +97,13 @@ admin.html → **পেমেন্ট গেটওয়ে**:
 
 যে ইভেন্টগুলো যায়: `PageView`, `InitiateCheckout` (প্যাকেজ বাছলে), `AddPaymentInfo`, `Purchase` (অর্ডার জমা বা অনলাইন পেমেন্ট সফল হলে, অর্ডার কোড event ID হিসেবে, তাই ব্রাউজার আর সার্ভারের Purchase দুবার গোনা হয় না), `Contact` (হোয়াটসঅ্যাপ ক্লিক)। সব টাকা BDT-তে।
 
+Pixel কোড কীভাবে বসে:
+
+- `.htaccess` সাইটের পেজগুলো (`index.html`, `dashboard.html`, আর লিগ্যাল পেজ) `page.php` দিয়ে পাঠায়। `page.php` অ্যাডমিনের সেটিং থেকে Meta Pixel-এর আসল base code প্রতিটা পেজের `<head>`-এ লিখে দেয়, আর ল্যান্ডিং পেজে SEO প্যানেলের ট্যাগগুলোও (title, description, Open Graph, `facebook-domain-verification`, GTM/GA4, custom head code)। View Page Source-এ "Meta Pixel Code" দেখা যাবে। অ্যাডমিন পেজে Pixel বসে না।
+- সার্ভারে `mod_rewrite` বন্ধ থাকলে `assets/api.js` নিজেই Pixel লোড করে, তবে তখন সেটা Page Source-এ দেখা যায় না। হোস্টিং-এ `mod_rewrite` চালু রাখুন (cPanel-এ সাধারণত চালু থাকে)।
+- Conversions API: Access token থাকলে `Purchase` ছাড়া বাকি ইভেন্টগুলোও ব্রাউজার `api.php?action=fb_event`-এ পাঠায়, আর সার্ভার একই event ID দিয়ে Meta-কে পাঠায়। `Purchase` সার্ভার নিজেই পাঠায় অর্ডার বা পেমেন্ট সেভ হওয়ার সময়। Events Manager-এ প্রতিটা ইভেন্টে Browser আর Server দুটোই দেখা যাবে, আর Meta সেগুলো একবারই গোনে।
+- **টেস্ট ইভেন্ট পাঠান** ব্যর্থ হলে এখন লাল বার্তায় Meta-র আসল কারণ (যেমন ভুল token) দেখায়। Graph API `v26.0` ব্যবহার হয়।
+
 - Token সেভ হওয়ার পর আর ব্রাউজারে ফেরত দেখানো হয় না। বদলাতে নতুনটা দিন, বা **Token মুছুন** চাপুন।
 - সার্ভারের শেষ পাঠানোটা সফল না ব্যর্থ, প্যানেলেই দেখা যায়। Meta ভুল token বললেও অর্ডার আটকায় না।
 - সার্ভার ইমেইল আর ফোন SHA-256 hash করে পাঠায়, আসল লেখা না।

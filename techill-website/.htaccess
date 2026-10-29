@@ -1,5 +1,5 @@
 # Block direct access to config, helpers and the schema.
-<FilesMatch "^(config\.php|lib\.php|schema\.sql|README\.md)$">
+<FilesMatch "^(config\.php|lib\.php|schema\.sql|README\.md|error_log)$">
   Require all denied
 </FilesMatch>
 Options -Indexes
@@ -9,4 +9,13 @@ Options -Indexes
   <FilesMatch "\.(html|js|json)$">
     Header set Cache-Control "no-cache"
   </FilesMatch>
+</IfModule>
+
+# Public pages go through page.php, which writes the Meta Pixel code (and the landing page's SEO tags)
+# into <head> from the admin panel settings.
+DirectoryIndex index.html
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^$ page.php?p=index [QSA,L]
+  RewriteRule ^(index|dashboard|contact|privacy|refund|terms)\.html$ page.php?p=$1 [QSA,L]
 </IfModule>

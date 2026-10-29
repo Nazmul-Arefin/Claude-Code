@@ -47,6 +47,7 @@ function paintCompany(c){
   });
 }
 
+const api = window.TechillAPI;
 api.init().then(() => api.company()).then(async r => {
   const c = r.company || {};
   paintCompany(c);

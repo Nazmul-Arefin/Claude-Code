@@ -453,7 +453,7 @@ textarea.inp{resize:vertical;min-height:84px}
 <div class="tip" id="tip" hidden></div>
 <div class="toast" id="toast" role="status" hidden></div>
 
-<script src="assets/api.js?v=15"></script>
+<script src="assets/api.js?v=16"></script>
 <script>
 const api = window.TechillAPI;
 const $ = id => document.getElementById(id);
@@ -1213,7 +1213,7 @@ $("meBtn").addEventListener("click", () => openPerson("team", team.find(x => x.i
 function renderMarketing(){
   if (!mset){ $("main").innerHTML = '<p class="empty">লোড হচ্ছে...</p>'; return; }
   const m = mset, on = m.pixel_enabled && m.pixel_id, last = m.capi_last;
-  const EV = [["PageView", "ল্যান্ডিং পেজ বা ড্যাশবোর্ড খুললে"], ["InitiateCheckout", "কোনো প্যাকেজের \"এই প্যাকেজ নিন\" চাপলে, প্যাকেজের দাম সহ"], ["AddPaymentInfo", "চেকআউটে পেমেন্ট ধাপ পার হলে"],
+  const EV = [["PageView", "সাইটের যেকোনো পেজ খুললে (অ্যাডমিন বাদে)"], ["InitiateCheckout", "কোনো প্যাকেজের \"এই প্যাকেজ নিন\" চাপলে, প্যাকেজের দাম সহ"], ["AddPaymentInfo", "চেকআউটে পেমেন্ট ধাপ পার হলে"],
     ["Purchase", "অর্ডার জমা হলে (Send Money) বা অনলাইন পেমেন্ট সফল হলে, মোট টাকা সহ"], ["Contact", "হোয়াটসঅ্যাপ বোতামে ক্লিক করলে"]];
   $("main").innerHTML = `
     <div class="sec-h"><div><h1>Facebook Pixel</h1><p>Pixel ID দিলেই সাইটে Pixel চালু হবে। কোড বসাতে হবে না।</p></div>
@@ -1225,7 +1225,7 @@ function renderMarketing(){
           <small class="muted" style="font-size:.82rem">Meta Events Manager → Data sources → আপনার Pixel → Settings-এ Pixel ID পাবেন। শুধু সংখ্যাগুলো দিন, পুরো কোড না।</small></div>
         <div style="border-top:1px solid var(--line);padding-top:14px;display:grid;gap:12px">
           <h3 style="font-size:1rem">Conversions API <small class="muted" style="font-weight:400">(ঐচ্ছিক, তবে দরকারি)</small></h3>
-          <p class="muted" style="font-size:.86rem">iPhone আর অ্যাড ব্লকারে ব্রাউজারের Pixel অনেক সময় আটকে যায়। Access token দিলে সার্ভার নিজেও Meta-কে Purchase জানাবে, ফলে Ad-এর হিসাব আর টার্গেটিং ভালো হয়। একই অর্ডার দুবার গোনা হয় না।</p>
+          <p class="muted" style="font-size:.86rem">iPhone আর অ্যাড ব্লকারে ব্রাউজারের Pixel অনেক সময় আটকে যায়। Access token দিলে সার্ভার নিজেও পাশের প্রতিটা ইভেন্ট Meta-কে জানাবে, ফলে Ad-এর হিসাব আর টার্গেটিং ভালো হয়। ব্রাউজার আর সার্ভারের একই ইভেন্ট একই event ID পায়, তাই দুবার গোনা হয় না।</p>
           <div class="f"><label for="fb-token">Access token ${m.capi_set ? '<small>(সেভ করা আছে, বদলাতে চাইলে নতুন দিন)</small>' : ""}</label><input class="inp" id="fb-token" name="capi_token" type="password" autocomplete="off" placeholder="${m.capi_set ? "••••••••" : "Events Manager → Settings → Conversions API → Generate access token"}"></div>
           <div class="f"><label for="fb-test">Test event code <small>(পরীক্ষার সময় দিন, পরে খালি করে দিন)</small></label><input class="inp" id="fb-test" name="test_code" value="${esc(m.test_code)}" placeholder="যেমন TEST12345" autocomplete="off"></div>
         </div>
@@ -1239,7 +1239,7 @@ function renderMarketing(){
         <ul class="lines">${EV.map(([e, w]) => `<li><b>${e}</b><span class="muted" style="text-align:right">${w}</span></li>`).join("")}</ul>
         <p class="muted" style="font-size:.86rem">সব টাকা BDT-তে যায়। Purchase-এ অর্ডার কোড event ID হিসেবে যায়, তাই ব্রাউজার আর সার্ভারের একই Purchase Meta একবারই গোনে।</p>
         <div class="box"><h4>সার্ভার থেকে শেষ পাঠানো</h4>${last ? `<p>${last.ok ? '<span class="badge b-done">সফল</span>' : '<span class="badge b-late">ব্যর্থ</span>'} ${esc(last.event)} · ${esc(last.order)} · ${ago(last.at)}</p><p class="muted" style="font-size:.86rem;margin-top:6px">${esc(last.message)}</p>` : '<p class="muted" style="font-size:.88rem">এখনো কিছু পাঠানো হয়নি।</p>'}</div>
-        <p class="muted" style="font-size:.84rem">চেক করতে: Chrome-এ "Meta Pixel Helper" extension দিয়ে সাইট খুলুন। Pixel চালু থাকলে PageView দেখাবে।</p>
+        <p class="muted" style="font-size:.84rem">চেক করতে: সাইট খুলে View Page Source-এ &lt;head&gt;-এর ভেতর "Meta Pixel Code" দেখবেন। Chrome-এর "Meta Pixel Helper" extension-এ PageView দেখাবে, আর Events Manager-এ ইভেন্টগুলো Browser ও Server দুটো থেকেই আসবে।</p>
       </div>
     </div>`;
   $("fbForm").addEventListener("submit", async e => {

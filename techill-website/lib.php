@@ -452,15 +452,57 @@ function delete_media(?string $p): void { if (is_media_path($p) && is_file(__DIR
 
 /* ---------- Facebook Pixel & Conversions API ---------- */
 
-const FB_GRAPH_VERSION = 'v21.0';   // Graph API version for the Conversions API; bump when Meta retires it
+const FB_GRAPH_VERSION = 'v26.0';   // Graph API version for the Conversions API; bump when Meta retires it
+// Standard events the browser may ask the server to repeat. Purchase is sent only from the order and payment code.
+const FB_BROWSER_EVENTS = ['PageView', 'ViewContent', 'InitiateCheckout', 'AddPaymentInfo', 'Contact', 'Lead', 'CompleteRegistration'];
 
 function marketing_settings(bool $reload = false): array {
     static $s = null;
     if ($s === null || $reload) {
         $row = q("SELECT v FROM settings WHERE k = 'marketing'")->fetch();
         $s = array_replace(['pixel_enabled' => false, 'pixel_id' => '', 'capi_token' => '', 'test_code' => '', 'capi_last' => null], $row ? (json_decode($row['v'], true) ?: []) : []);
+        // The last server send is kept in its own row, so a busy page view can never write back an old token.
+        $last = q("SELECT v FROM settings WHERE k = 'capi_last'")->fetch();
+        if ($last) $s['capi_last'] = json_decode($last['v'], true);
     }
     return $s;
+}
+
+function capi_ready(array $m): bool {
+    return $m['pixel_enabled'] && $m['pixel_id'] !== '' && $m['capi_token'] !== '' && function_exists('curl_init');
+}
+
+function capi_note(string $event, string $ref, array $r): void {
+    settings_store('capi_last', ['event' => $event, 'order' => $ref, 'ok' => $r['ok'], 'message' => $r['message'], 'at' => time()]);
+}
+
+// Meta Pixel base code for the <head> of every public page, written by page.php. The PageView carries
+// an event ID, and assets/api.js sends the same ID to fb_event so Meta merges it with the server copy.
+function pixel_head(): string {
+    try { $m = marketing_settings(); } catch (Throwable $e) { return ''; }
+    if (!$m['pixel_enabled'] || !preg_match('/^\d{10,20}$/', $m['pixel_id'])) return '';
+    $id = $m['pixel_id'];
+    $ev = 'pv-' . bin2hex(random_bytes(8));
+    return "<!-- Meta Pixel Code -->\n<script>\n!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};"
+        . "if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];"
+        . "s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');\n"
+        . "fbq('init','$id');\nwindow.techillPixel={id:'$id',pv:'$ev'};\nfbq('track','PageView',{},{eventID:'$ev'});\n</script>\n"
+        . "<noscript><img height=\"1\" width=\"1\" style=\"display:none\" src=\"https://www.facebook.com/tr?id=$id&ev=PageView&noscript=1\" alt=\"\"></noscript>\n<!-- End Meta Pixel Code -->";
+}
+
+// Hashed customer details Meta uses to match a server event to a Facebook account.
+function fb_user_data(?int $userId, string $phone, array $extra): array {
+    $h = fn($v) => hash('sha256', mb_strtolower(trim((string)$v)));
+    $cust = $userId ? (q('SELECT email, phone FROM users WHERE id = ?', [$userId])->fetch() ?: []) : [];
+    $phone = preg_replace('/\D/', '', $phone !== '' ? $phone : (string)($cust['phone'] ?? ''));
+    if ($phone !== '' && str_starts_with($phone, '01')) $phone = '88' . $phone;
+    return array_filter([
+        'em' => !empty($cust['email']) ? [$h($cust['email'])] : null,
+        'ph' => $phone !== '' ? [$h($phone)] : null,
+        'external_id' => $userId ? [$h('techill-' . $userId)] : null,
+        'client_ip_address' => $extra['ip'] ?? null, 'client_user_agent' => $extra['ua'] ?? null,
+        'fbp' => $extra['fbp'] ?? null, 'fbc' => $extra['fbc'] ?? null,
+    ]);
 }
 
 // Server-side copy of a browser Pixel event. The same event_id lets Meta drop the duplicate.
@@ -468,29 +510,34 @@ function marketing_settings(bool $reload = false): array {
 function fb_capi(string $event, array $o, array $extra = []): void {
     try {
         $m = marketing_settings();
-        if (!$m['pixel_enabled'] || $m['pixel_id'] === '' || $m['capi_token'] === '' || !function_exists('curl_init')) return;
+        if (!capi_ready($m)) return;
         $info = json_decode($o['info_json'] ?? '{}', true) ?: [];
-        $cust = q('SELECT email, phone FROM users WHERE id = ?', [$o['user_id']])->fetch() ?: [];
-        $h = fn($v) => hash('sha256', mb_strtolower(trim((string)$v)));
-        $phone = preg_replace('/\D/', '', (string)($info['phone'] ?? $cust['phone'] ?? ''));
-        if ($phone !== '' && str_starts_with($phone, '01')) $phone = '88' . $phone;
-        $user = array_filter([
-            'em' => !empty($cust['email']) ? [$h($cust['email'])] : null,
-            'ph' => $phone !== '' ? [$h($phone)] : null,
-            'external_id' => [$h('techill-' . $o['user_id'])],
-            'client_ip_address' => $extra['ip'] ?? null, 'client_user_agent' => $extra['ua'] ?? null,
-            'fbp' => $extra['fbp'] ?? null, 'fbc' => $extra['fbc'] ?? null,
-        ]);
         $body = ['data' => [[
             'event_name' => $event, 'event_time' => time(), 'event_id' => $o['code'], 'action_source' => 'website',
-            'event_source_url' => site_url('index.html'), 'user_data' => $user,
+            'event_source_url' => site_url('index.html'), 'user_data' => fb_user_data((int)$o['user_id'], (string)($info['phone'] ?? ''), $extra),
             'custom_data' => ['currency' => 'BDT', 'value' => (int)$o['total'], 'content_name' => $o['pack'] . ' · ' . $o['stack'], 'content_type' => 'product', 'content_ids' => [$o['pack']], 'order_id' => $o['code']],
         ]]];
         if ($m['test_code'] !== '') $body['test_event_code'] = $m['test_code'];
         $r = fb_post($m, $body);
-        $m['capi_last'] = ['event' => $event, 'order' => $o['code'], 'ok' => $r['ok'], 'message' => $r['message'], 'at' => time()];
-        q("INSERT INTO settings (k, v) VALUES ('marketing', ?) ON DUPLICATE KEY UPDATE v = VALUES(v)", [json_encode($m, JSON_UNESCAPED_UNICODE)]);
-        marketing_settings(true);
+        capi_note($event, $o['code'], $r);
+    } catch (Throwable $e) {
+        error_log('techill capi: ' . $e->getMessage());
+    }
+}
+
+// Server copy of a browser event that is not a purchase (PageView, InitiateCheckout, ...). Never throws.
+function fb_capi_browser(string $event, string $eventId, string $url, array $custom, ?int $userId): void {
+    try {
+        $m = marketing_settings();
+        if (!capi_ready($m)) return;
+        $body = ['data' => [array_filter([
+            'event_name' => $event, 'event_time' => time(), 'event_id' => $eventId, 'action_source' => 'website',
+            'event_source_url' => $url, 'user_data' => fb_user_data($userId, '', fb_context()), 'custom_data' => $custom ?: null,
+        ])]];
+        if ($m['test_code'] !== '') $body['test_event_code'] = $m['test_code'];
+        $r = fb_post($m, $body);
+        // Page views are many; remember only failures and the other events, so the admin panel shows what matters.
+        if ($event !== 'PageView' || !$r['ok']) capi_note($event, (string)(parse_url($url, PHP_URL_PATH) ?: '/'), $r);
     } catch (Throwable $e) {
         error_log('techill capi: ' . $e->getMessage());
     }

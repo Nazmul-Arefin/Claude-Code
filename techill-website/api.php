@@ -11,9 +11,9 @@ if (cfg('db_pass') === 'CHANGE_ME' && is_file(__DIR__ . '/install.php')) out(['e
 start_session();
 $action = $_GET['action'] ?? '';
 $isPost = $_SERVER['REQUEST_METHOD'] === 'POST';
-// The analytics beacon and PayStation's callback come without our CSRF token. Neither trusts
+// The analytics and Pixel beacons and PayStation's callback come without our CSRF token. Neither trusts
 // its input: the callback only triggers a server-to-server status check with PayStation.
-if ($isPost && !in_array($action, ['track', 'paystation_callback'], true)) check_csrf();
+if ($isPost && !in_array($action, ['track', 'fb_event', 'paystation_callback'], true)) check_csrf();
 
 const STAGES = 5;          // তথ্য জমা, পেমেন্ট যাচাই, সেটআপ চলছে, রিভিউ, ডেলিভারি
 const LOGIN_LIMIT = 10;    // failed logins per IP per 15 minutes
@@ -42,6 +42,7 @@ try {
         case 'info_update':  $isPost || fail('POST only', 405); info_update();
         case 'admin_update': $isPost || fail('POST only', 405); staff_update();
         case 'track':        $isPost || fail('POST only', 405); track();
+        case 'fb_event':     $isPost || fail('POST only', 405); fb_event();
         case 'catalog':      out(['catalog' => catalog(), 'payments' => public_payments(), 'pixel' => public_pixel(), 'support' => public_support(), 'referral' => public_referral(), 'site' => site_settings(),
                                  'auth' => ['email' => email_ready(), 'otp' => otp_required()]]);
         case 'catalog_save': $isPost || fail('POST only', 405); catalog_save();
@@ -1137,7 +1138,8 @@ function marketing_save(): void {
     }
     if (!empty($_POST['capi_clear'])) $m['capi_token'] = '';
     $m['test_code'] = preg_replace('/[^A-Za-z0-9]/', '', str_in('test_code', 40));
-    q("INSERT INTO settings (k, v) VALUES ('marketing', ?) ON DUPLICATE KEY UPDATE v = VALUES(v)", [json_encode($m, JSON_UNESCAPED_UNICODE)]);
+    unset($m['capi_last']);   // kept in its own settings row, see capi_note()
+    settings_store('marketing', $m);
     marketing_settings(true);
     out(['settings' => marketing_out()]);
 }
@@ -1151,7 +1153,41 @@ function capi_test(): void {
     $body = ['data' => [['event_name' => 'PageView', 'event_time' => time(), 'event_id' => 'techill-test-' . bin2hex(random_bytes(4)), 'action_source' => 'website',
         'event_source_url' => site_url('index.html'), 'user_data' => ['client_ip_address' => client_ip(), 'client_user_agent' => mb_substr((string)($_SERVER['HTTP_USER_AGENT'] ?? 'Techill'), 0, 400)]]]];
     if ($m['test_code'] !== '') $body['test_event_code'] = $m['test_code'];
-    out(fb_post($m, $body));
+    $r = fb_post($m, $body);
+    capi_note('PageView (টেস্ট)', 'test', $r);
+    if (!$r['ok']) fail('Meta ইভেন্ট নেয়নি: ' . $r['message']);   // out() would mark it ok
+    out($r);
+}
+
+// Public beacon from assets/api.js: the server copy of a browser Pixel event, with the browser's event ID
+// so Meta counts it once. Only the events in FB_BROWSER_EVENTS; Purchase comes from the order code itself.
+function fb_event(): void {
+    $event = (string)($_POST['event'] ?? '');
+    $id = (string)($_POST['event_id'] ?? '');
+    $ua = (string)($_SERVER['HTTP_USER_AGENT'] ?? '');
+    if (!in_array($event, FB_BROWSER_EVENTS, true) || !preg_match('/^[A-Za-z0-9_\-]{6,64}$/', $id) || $ua === ''
+        || preg_match('/bot|crawl|spider|slurp|preview|headless|lighthouse/i', $ua)) out([]);
+    // At most 60 events per visitor session every 10 minutes.
+    $now = time(); $w = $_SESSION['fb_rate'] ?? [0, $now];
+    if ($now - $w[1] > 600) $w = [0, $now];
+    if (++$w[0] > 60) out([]);
+    $_SESSION['fb_rate'] = $w;
+    $uid = $_SESSION['uid'] ?? null;
+    session_write_close();
+    // Only pages of this site count as the event's page.
+    $url = (string)($_POST['url'] ?? '');
+    if (strcasecmp((string)parse_url($url, PHP_URL_HOST), (string)parse_url(site_url(''), PHP_URL_HOST)) !== 0) $url = site_url('index.html');
+    $url = mb_substr($url, 0, 500);
+    $custom = [];
+    if (is_numeric($_POST['value'] ?? null)) $custom = ['currency' => 'BDT', 'value' => max(0, min(10000000, (int)$_POST['value']))];
+    $name = str_in('content_name', 120);
+    if ($name !== '') $custom['content_name'] = $name;
+    if ($name !== '' && $event !== 'Contact') { $custom['content_type'] = 'product'; $custom['content_ids'] = [str_in('content_id', 60) ?: $name]; }
+    // The browser does not wait for the answer; on PHP-FPM let it go before calling Meta.
+    $early = function_exists('fastcgi_finish_request');
+    if ($early) { header('Content-Type: application/json'); echo '{"ok":true}'; fastcgi_finish_request(); }
+    fb_capi_browser($event, $id, $url, $custom, $uid ? (int)$uid : null);
+    if (!$early) out([]);
 }
 
 /* ---------- email notifications ---------- */
