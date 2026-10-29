@@ -673,7 +673,7 @@ window.TechillAPI = (() => {
     async marketing_settings() { const d = load(); needAdmin(d); return {settings: marketingOut(demoMarketing())}; },
     async marketing_save(f) {
       const d = load(); needAdmin(d);
-      const m = demoMarketing(), id = String(f.pixel_id || "").replace(/\D/g, "");
+      const m = demoMarketing(), raw = String(f.pixel_id || ""), mm = raw.match(/fbq\(\s*['"]init['"]\s*,\s*['"]?(\d{10,20})/) || raw.match(/[?&]id=(\d{10,20})/), id = mm ? mm[1] : raw.replace(/\D/g, "");
       if (f.pixel_enabled && !/^\d{10,20}$/.test(id)) bad("সঠিক Pixel ID দিন (শুধু সংখ্যা, সাধারণত ১৫-১৬ ডিজিট)।");
       Object.assign(m, {pixel_enabled: !!f.pixel_enabled, pixel_id: id, test_code: String(f.test_code || "").replace(/[^A-Za-z0-9]/g, "")});
       if (f.capi_token) m.capi_token = f.capi_token; if (f.capi_clear) m.capi_token = "";

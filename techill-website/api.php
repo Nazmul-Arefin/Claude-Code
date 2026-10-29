@@ -1126,7 +1126,9 @@ function marketing_get(): void { require_admin(); out(['settings' => marketing_o
 function marketing_save(): void {
     require_admin();
     $m = marketing_settings();
-    $id = preg_replace('/\D/', '', str_in('pixel_id', 40));
+    // The bare ID, or the whole base code copied from Events Manager: take the ID from fbq('init', ...) or tr?id=.
+    $raw = str_in('pixel_id', 5000);
+    $id = preg_match('/fbq\(\s*[\'"]init[\'"]\s*,\s*[\'"]?(\d{10,20})/', $raw, $x) || preg_match('/[?&]id=(\d{10,20})/', $raw, $x) ? $x[1] : preg_replace('/\D/', '', $raw);
     $enabled = !empty($_POST['pixel_enabled']);
     if ($enabled && !preg_match('/^\d{10,20}$/', $id)) fail('সঠিক Pixel ID দিন (শুধু সংখ্যা, সাধারণত ১৫-১৬ ডিজিট)।');
     $m['pixel_enabled'] = $enabled;

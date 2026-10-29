@@ -453,7 +453,7 @@ textarea.inp{resize:vertical;min-height:84px}
 <div class="tip" id="tip" hidden></div>
 <div class="toast" id="toast" role="status" hidden></div>
 
-<script src="assets/api.js?v=16"></script>
+<script src="assets/api.js?v=17"></script>
 <script>
 const api = window.TechillAPI;
 const $ = id => document.getElementById(id);
@@ -1221,8 +1221,8 @@ function renderMarketing(){
     <div class="grid g-main" style="margin-bottom:18px">
       <form class="card" id="fbForm" style="display:grid;gap:14px;align-content:start">
         <div class="ch" style="margin:0"><h3>Pixel</h3><label class="switch"><input type="checkbox" name="pixel_enabled" ${m.pixel_enabled ? "checked" : ""}><span></span>Pixel চালু</label></div>
-        <div class="f"><label for="fb-id">Pixel ID</label><input class="inp" id="fb-id" name="pixel_id" inputmode="numeric" value="${esc(m.pixel_id)}" placeholder="যেমন 1234567890123456" autocomplete="off">
-          <small class="muted" style="font-size:.82rem">Meta Events Manager → Data sources → আপনার Pixel → Settings-এ Pixel ID পাবেন। শুধু সংখ্যাগুলো দিন, পুরো কোড না।</small></div>
+        <div class="f"><label for="fb-id">Pixel ID</label><input class="inp" id="fb-id" name="pixel_id" value="${esc(m.pixel_id)}" placeholder="যেমন 1234567890123456" autocomplete="off">
+          <small class="muted" style="font-size:.82rem">Meta Events Manager → Data sources → আপনার Pixel → Settings-এ Pixel ID পাবেন। শুধু সংখ্যাগুলো দিন, অথবা পুরো Pixel কোড পেস্ট করুন, ID নিজেই বের করে নেওয়া হবে।</small></div>
         <div style="border-top:1px solid var(--line);padding-top:14px;display:grid;gap:12px">
           <h3 style="font-size:1rem">Conversions API <small class="muted" style="font-weight:400">(ঐচ্ছিক, তবে দরকারি)</small></h3>
           <p class="muted" style="font-size:.86rem">iPhone আর অ্যাড ব্লকারে ব্রাউজারের Pixel অনেক সময় আটকে যায়। Access token দিলে সার্ভার নিজেও পাশের প্রতিটা ইভেন্ট Meta-কে জানাবে, ফলে Ad-এর হিসাব আর টার্গেটিং ভালো হয়। ব্রাউজার আর সার্ভারের একই ইভেন্ট একই event ID পায়, তাই দুবার গোনা হয় না।</p>
