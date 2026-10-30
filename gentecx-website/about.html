@@ -57,26 +57,9 @@ header.dk nav a{color:rgba(255,255,255,.74)}header.dk nav a:hover{color:#fff}
 header.dk nav a[aria-current]{color:#fff;box-shadow:inset 0 -2px 0 var(--p5)}
 header.dk .mb{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);color:#fff}
 /* hero (dark) */
-.hero{position:relative;overflow:hidden;color:#fff;margin-top:-73px;padding:145px 0 136px;background:radial-gradient(circle at 78% 28%,rgba(217,45,154,.38),transparent 46%),radial-gradient(circle at 8% 92%,rgba(244,166,77,.14),transparent 40%),linear-gradient(180deg,var(--ink),var(--ink2))}
-.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(600px circle at var(--sx,70%) var(--sy,30%),rgba(231,68,168,.16),transparent 60%);pointer-events:none}
-.hg{position:relative;display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center}
-.hero .eb{color:#FF8FCB;display:inline-flex;align-items:center;gap:8px}
-.hero .eb::before{content:"";width:8px;height:8px;border-radius:50%;background:#FF5FB8;box-shadow:0 0 0 4px rgba(255,95,184,.22)}
 h1{font-size:clamp(40px,6vw,72px);font-weight:800;line-height:1.04}
-.hero .g{background:var(--gd);-webkit-background-clip:text;background-clip:text}
-.lead{font-size:18px;color:rgba(255,255,255,.78);max-width:31em;margin:22px 0 32px}
+.lead{font-size:18px;color:var(--tx2);max-width:36em;margin:22px auto 32px}
 .btns{display:flex;flex-wrap:wrap;gap:14px}
-.wa{display:flex;align-items:center;gap:8px;margin-top:22px;font-size:14px;color:rgba(255,255,255,.66)}
-.wa a{color:#fff;font-weight:600;text-decoration:underline;text-decoration-color:rgba(255,255,255,.35);text-underline-offset:3px}.wa a:hover{text-decoration-color:#FF8FCB}
-.hv{position:relative;transform:translate(calc(var(--mx,0)*-8px),calc(var(--my,0)*-8px));transition:transform .3s ease-out}
-.hv .ph{aspect-ratio:5/4;border-radius:24px;--a:#3B1A55;--b:#5A1F57;color:rgba(255,255,255,.7);box-shadow:0 30px 70px rgba(0,0,0,.35)}
-.hv .ph::before{border-color:rgba(255,255,255,.22)}
-.hand{position:absolute;top:-46px;right:4px;font:600 30px/1.05 "Caveat",cursive;color:#FF7FC4;transform:rotate(-5deg);max-width:6.5em;text-align:right;text-shadow:0 0 18px rgba(255,95,184,.55)}
-.note{position:absolute;left:-22px;bottom:30px;background:#FFE9A8;color:var(--tx);font:600 19px/1.3 "Caveat",cursive;padding:14px 18px;border-radius:6px;transform:rotate(-6deg);box-shadow:0 10px 22px rgba(0,0,0,.25)}
-.gs{position:absolute;right:-14px;bottom:-26px;background:rgba(255,255,255,.96);color:var(--tx);border-radius:16px;padding:14px 18px;box-shadow:0 18px 40px rgba(0,0,0,.28);min-width:220px}
-.gs b{display:block;font:700 13px var(--hf);margin-bottom:8px}
-.gs li{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--tx2);padding:2px 0}
-.gs .i{font-size:18px;color:var(--ok)}
 /* trust strip */
 .mt{margin-top:-68px;position:relative;z-index:2}
 .ml{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border:1px solid var(--bd);border-radius:22px;box-shadow:var(--sh)}
@@ -266,8 +249,6 @@ fieldset{border:0;margin:0 0 16px;padding:0}
  nav.on{display:block}
  nav ul{flex-direction:column}nav a,header.dk nav a{padding:14px 8px;font-size:16px;color:var(--tx2)}
  nav a[aria-current],header.dk nav a[aria-current]{box-shadow:none;color:var(--p7);background:var(--l1);border-radius:12px}
- .hg{grid-template-columns:1fr;gap:72px}.hero{padding:121px 0 120px}
- .gs{right:8px}
  .fg{grid-template-columns:1fr 1fr}
  .wy,.fq,.cb{grid-template-columns:1fr}.fq .ct{position:static}.wy{gap:36px}
  .ps{grid-template-columns:1fr;gap:28px;text-align:left}
@@ -282,7 +263,7 @@ fieldset{border:0;margin:0 0 16px;padding:0}
  .sc>*{flex-basis:85%}
  .ml li{padding:18px 14px;flex-direction:column;align-items:flex-start;gap:10px}
  .lr{grid-template-columns:1fr 1fr}
- .hand{font-size:24px;top:-44px}.note{left:-6px;font-size:17px}.gs{display:none}
+
  .lead{font-size:16px}.btns .btn{flex:1 1 100%}
  .ev{grid-template-columns:1fr}.f2{grid-template-columns:1fr}
  .fg{grid-template-columns:1fr}.cb{padding:44px 22px}
@@ -291,7 +272,19 @@ fieldset{border:0;margin:0 0 16px;padding:0}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}.rv{opacity:1;transform:none}}
 /* ===== about page ===== */
-.ab h1{font-size:clamp(36px,4.8vw,60px)}
+.ahero{position:relative;overflow:hidden;padding:84px 0 48px;background:radial-gradient(circle at 85% 8%,#FFD6E8 0,transparent 40%),radial-gradient(circle at 8% 30%,#EBDDFB 0,transparent 36%),linear-gradient(180deg,var(--p05),var(--l1)) top/100% 72% no-repeat,#fff}
+.ahero::before{content:"";position:absolute;inset:0;background:radial-gradient(520px circle at var(--sx,50%) var(--sy,20%),rgba(231,68,168,.08),transparent 60%);pointer-events:none}
+.ac{position:relative;text-align:center;max-width:920px}
+.ac h1{font-size:clamp(38px,5.6vw,72px);font-weight:800;line-height:1.06;text-wrap:balance}
+.ac .btns{justify-content:center}
+.pano{position:relative;margin-top:64px;transform:translate(calc(var(--mx,0)*-8px),calc(var(--my,0)*-5px));transition:transform .3s ease-out}
+.pano .ph{aspect-ratio:21/9;border-radius:28px;--a:#FFC9DD;--b:#D9C2F0;box-shadow:var(--shh);border:4px solid #fff}
+.hand{position:absolute;z-index:2;top:-50px;right:clamp(8px,4vw,64px);font:600 30px/1.05 "Caveat",cursive;color:var(--p6);transform:rotate(-5deg)}
+.note{position:absolute;z-index:2;left:clamp(-6px,-1vw,-18px);bottom:40px;background:#FFE9A8;color:var(--tx);font:600 19px/1.3 "Caveat",cursive;padding:14px 18px;border-radius:6px;transform:rotate(-6deg);box-shadow:0 10px 22px rgba(45,18,48,.18)}
+.gs{position:absolute;z-index:2;right:clamp(12px,3vw,40px);bottom:-30px;background:#fff;border:1px solid var(--bd);border-radius:16px;padding:14px 18px;box-shadow:var(--shh);min-width:220px}
+.gs b{display:block;font:700 13px var(--hf);margin-bottom:8px}
+.gs li{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--tx2);padding:2px 0}
+.gs .i{font-size:18px;color:var(--ok)}
 .pv{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:start}
 .pv .ct{position:sticky;top:110px;margin-bottom:0}
 .pv .hw{display:block;font:600 26px/1.2 "Caveat",cursive;color:var(--p6);margin-top:28px;transform:rotate(-2deg)}
@@ -335,12 +328,12 @@ fieldset{border:0;margin:0 0 16px;padding:0}
 .jn .sub{margin-top:6px}
 .jn .hw{font:600 24px/1 "Caveat",cursive;color:var(--p6);display:block;margin-bottom:6px;transform:rotate(-2deg)}
 @media(max-width:1099px){.vg,.sd{grid-template-columns:1fr 1fr}.tm{grid-template-columns:repeat(3,1fr)}.rh{grid-template-columns:1fr 1fr}}
-@media(max-width:899px){.pv,.fd{grid-template-columns:1fr}.pv{gap:24px}.pv .ct{position:static}.fd>.ph{min-height:0;aspect-ratio:16/10}}
-@media(max-width:639px){.vg,.sd,.rh{grid-template-columns:1fr}.tm{grid-template-columns:1fr 1fr;gap:14px}.bl li{grid-template-columns:56px 1fr;gap:14px}.bn{font-size:36px}.jn .btn{width:100%}}
+@media(max-width:899px){.ahero{padding-top:56px}.pano .ph{aspect-ratio:16/10}.pv,.fd{grid-template-columns:1fr}.pv{gap:24px}.pv .ct{position:static}.fd>.ph{min-height:0;aspect-ratio:16/10}}
+@media(max-width:639px){.pano{margin-top:80px}.hand{font-size:22px;top:-46px}.note{left:-4px;bottom:-18px;font-size:15px;padding:10px 12px}.gs{display:none}.pano .ph{aspect-ratio:4/3;border-radius:20px}.vg,.sd,.rh{grid-template-columns:1fr}.tm{grid-template-columns:1fr 1fr;gap:14px}.bl li{grid-template-columns:56px 1fr;gap:14px}.bn{font-size:36px}.jn .btn{width:100%}}
 </style>
 </head>
 <body>
-<header class="dk" id="hdr">
+<header id="hdr">
  <div class="w nb">
   <a class="logo" href="index.html" aria-label="Gentecx home">gentecx<small>Growing | Innovation | Solution</small></a>
   <button class="mb" id="mb" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><i class="i" aria-hidden="true">menu</i></button>
@@ -355,30 +348,23 @@ fieldset{border:0;margin:0 0 16px;padding:0}
 
 <main>
 <!-- Hero -->
-<section class="hero ab" id="top" aria-labelledby="h1">
- <div class="w hg">
-  <div>
-   <p class="eb">About Gentecx</p>
-   <h1 id="h1">We’re Gentecx.<br><span class="g">We Build Digital Growth.</span></h1>
-   <p class="lead">We believe good marketing should do more than look good. It should make your brand clearer, your audience more engaged and your next business decision smarter. We bring strategy, creativity and performance together to help brands move with intention.</p>
-   <div class="btns">
-    <button class="btn p" type="button" data-book>Book a Growth Call <i class="i" aria-hidden="true">arrow_forward</i></button>
-    <a class="btn gh" href="#team">Meet the Team</a>
-   </div>
-  </div>
-  <div class="hv" id="hv">
-   <!-- Replace with: <img src="about-team.jpg" alt="The Gentecx team in the studio" width="1000" height="800" fetchpriority="high"> -->
-   <div class="ph" role="img" aria-label="Placeholder: the Gentecx team in the studio" data-l="Team photo placeholder · Gentecx team in the studio (5:4)"></div>
-   <p class="hand" aria-hidden="true">Bold. Strategic. Modern. Human.</p>
-   <div class="note" aria-hidden="true">Clarity<br>Creativity<br>Performance<br>Proof</div>
-   <div class="gs" aria-hidden="true"><b>Under one roof</b><ul><li><i class="i">check_circle</i>Strategy &amp; brand</li><li><i class="i">check_circle</i>Content &amp; creative</li><li><i class="i">check_circle</i>Media, web &amp; data</li></ul></div>
+<section class="ahero" id="top" aria-labelledby="h1">
+ <div class="w ac">
+  <p class="eb">About Gentecx</p>
+  <h1 id="h1">We’re Gentecx. <span class="g">We Build Digital Growth.</span></h1>
+  <p class="lead">We believe good marketing should do more than look good. It should make your brand clearer, your audience more engaged and your next business decision smarter. We bring strategy, creativity and performance together to help brands move with intention.</p>
+  <div class="btns">
+   <button class="btn p" type="button" data-book>Book a Growth Call <i class="i" aria-hidden="true">arrow_forward</i></button>
+   <a class="btn s" href="#team">Meet the Team</a>
   </div>
  </div>
-</section>
-
-<!-- Proof -->
-<section class="mt w" aria-label="Gentecx at a glance">
- <ul class="ml" id="ml"></ul>
+ <div class="w pano" id="hv">
+  <!-- Replace with: <img src="about-team.jpg" alt="The Gentecx team in the studio" width="1680" height="720" fetchpriority="high"> -->
+  <div class="ph" role="img" aria-label="Placeholder: the whole Gentecx team in the studio" data-l="Wide team photo placeholder · whole team in the studio (21:9)"></div>
+  <p class="hand" aria-hidden="true">Bold. Strategic. Modern. Human.</p>
+  <div class="note" aria-hidden="true">Clarity<br>Creativity<br>Performance<br>Proof</div>
+  <div class="gs" aria-hidden="true"><b>Under one roof</b><ul><li><i class="i">check_circle</i>Strategy &amp; brand</li><li><i class="i">check_circle</i>Content &amp; creative</li><li><i class="i">check_circle</i>Media, web &amp; data</li></ul></div>
+ </div>
 </section>
 
 <!-- Point of view -->
@@ -532,7 +518,6 @@ fieldset{border:0;margin:0 0 16px;padding:0}
 const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s),ic=n=>`<i class="i" aria-hidden="true">${n}</i>`;
 const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
 /* ---- Content (edit here) ---- */
-const METRICS=[["task_alt","50+","Projects Delivered"],["workspace_premium","5+","Years of Experience"],["groups","25+","Growth Specialists"],["hub","7","Services, One Team"]];
 const SERVICES=[["Performance Marketing"],["Social Media Marketing"],["Branding & Strategy"],["Content & Creative Studio"],["SEO & Organic Growth"],["Website Design & Development"],["Lead Generation & Analytics"]].map(s=>[0,s[0]]);
 const BELIEFS=[["Clarity beats noise.","Posting more isn’t a strategy. We start with who you’re for, what you say and why it matters — then decide where to show up."],["Creative and performance belong together.","Ideas that stop the scroll and campaigns that convert are built by one team, around one goal."],["If it can’t be measured, it can’t be improved.","Tracking goes in before launch, so every decision is based on what actually happened — not on gut feel."],["Growth is a system, not a post.","Brand, content, media, website and data work best when they’re connected. So that’s how we build them."]];
 const VALUES=[["task_alt","Ownership","We treat your goals like our own and follow through without being chased.","#FFE0EC","#B8217F"],["visibility","Clarity First","Plain language and honest advice — even when the answer is “don’t do that”.","#EFE3FB","#6B35B0"],["lightbulb","Curiosity","We test, learn and keep asking why something worked, so the next move is smarter.","#FFEBCF","#A85D00"],["brush","Craft","Details matter. Good work looks right, reads right and works right.","#FFDCE4","#C0213F"],["monitoring","Transparency","You always know what we’re doing, what it costs and what it delivered.","#DDF3EA","#1E7A5C"],["handshake","Partnership","We win when you win. Long-term growth over quick vanity wins.","#DCEFFB","#1F5F99"]];
@@ -542,7 +527,6 @@ const TEAM=[["Strategy Lead","#FFD0E4","#E3D2F6"],["Creative Director","#FFE3C8"
 const STANDARDS=[["You own your accounts and assets.","Ad accounts, pages, data and creative files stay in your name — always."],["No made-up numbers.","We report real results with the period measured, and never promise rankings or revenue before we’ve seen the data."],["Scope agreed before work starts.","Deliverables, timelines and costs in writing. No surprise invoices."],["Plain-language reporting.","What moved, why, and what we’ll do next — not a wall of screenshots."],["Your data, handled with care.","Consent-based tracking, least-privilege access and a clean handover if we ever part ways."],["Honest advice.","If something isn’t right for your business, we’ll say so — even when it means less work for us."]];
 /* ---- Render ---- */
 const tint=(b,c)=>`style="background:${b};color:${c}"`;
-$("#ml").innerHTML=METRICS.map(m=>`<li><div class="ib">${ic(m[0])}</div><div><b>${m[1]}</b><span>${m[2]}</span></div></li>`).join("");
 $("#bl").innerHTML=BELIEFS.map((b,i)=>`<li><span class="bn" aria-hidden="true">0${i+1}</span><div><h3>${b[0]}</h3><p>${b[1]}</p></div></li>`).join("");
 $("#vg").innerHTML=VALUES.map(v=>`<li class="vc"><div class="ib sq" ${tint(v[3],v[4])}>${ic(v[0])}</div><h3>${v[1]}</h3><p>${v[2]}</p></li>`).join("");
 $("#ps").innerHTML=STEPS.map((s,i)=>`<li><div class="ib" ${tint(s[3],s[4])}>${ic(s[0])}</div><span class="n">0${i+1}</span><h3>${s[1]}</h3><p>${s[2]}</p></li>`).join("");
@@ -553,7 +537,6 @@ $("#fs").innerHTML=SERVICES.map(s=>`<li><a href="index.html#services">${s[1]}</a
 $("#sv").innerHTML=`<option value="">Choose a service</option>`+SERVICES.map(s=>`<option>${s[1]}</option>`).join("")+`<option>Not sure yet</option>`;
 /* ---- Header & nav ---- */
 const hdr=$("#hdr"),mb=$("#mb"),nav=$("#nav");
-new IntersectionObserver(([en])=>hdr.classList.toggle("dk",en.isIntersecting),{rootMargin:"-73px 0px 0px 0px"}).observe($(".hg"));
 const menu=o=>{nav.classList.toggle("on",o);mb.setAttribute("aria-expanded",o);mb.setAttribute("aria-label",o?"Close menu":"Open menu");mb.firstChild.textContent=o?"close":"menu"};
 mb.onclick=()=>menu(!nav.classList.contains("on"));
 nav.addEventListener("click",e=>{if(e.target.closest("a"))menu(false)});
@@ -588,12 +571,10 @@ af.addEventListener("submit",async e=>{
 const fine=matchMedia("(hover:hover) and (pointer:fine)").matches&&!reduce;
 if(!reduce){
  const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target)}}),{threshold:.12});
- $$(".sec .ct,.bl li,.vc,.ps li,.rc,.fd,.tm li,.sdc,.jn,.cb,.ml li").forEach(el=>{el.style.setProperty("--i",[...el.parentNode.children].indexOf(el));el.classList.add("rv");io.observe(el)});
- const co=new IntersectionObserver(([en])=>{if(!en.isIntersecting)return;co.disconnect();$$("#ml b").forEach(b=>{const t=parseInt(b.textContent);if(!t)return;const s=b.textContent.replace(/\d+/,""),t0=performance.now(),f=n=>{const p=Math.min((n-t0)/1300,1);b.textContent=Math.round(t*(1-Math.pow(1-p,3)))+s;if(p<1)requestAnimationFrame(f)};b.textContent="0"+s;requestAnimationFrame(f)})},{threshold:.4});
- co.observe($("#ml"));
+ $$(".sec .ct,.bl li,.vc,.ps li,.rc,.fd,.tm li,.sdc,.jn,.cb").forEach(el=>{el.style.setProperty("--i",[...el.parentNode.children].indexOf(el));el.classList.add("rv");io.observe(el)});
 }
 if(fine){
- const hero=$(".hero"),hv=$("#hv");
+ const hero=$(".ahero"),hv=$("#hv");
  hero.addEventListener("pointermove",e=>{const r=hero.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;hero.style.setProperty("--sx",x+"px");hero.style.setProperty("--sy",y+"px");hv.style.setProperty("--mx",(x/r.width-.5)*2);hv.style.setProperty("--my",(y/r.height-.5)*2)});
  hero.addEventListener("pointerleave",()=>{hv.style.setProperty("--mx",0);hv.style.setProperty("--my",0)});
  document.addEventListener("pointermove",e=>{const c=e.target.closest&&e.target.closest(".vc");if(c){const r=c.getBoundingClientRect();c.style.setProperty("--gx",e.clientX-r.left+"px");c.style.setProperty("--gy",e.clientY-r.top+"px")}},{passive:true});

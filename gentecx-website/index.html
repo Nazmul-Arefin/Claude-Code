@@ -59,7 +59,10 @@ header.dk .mb{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2)
 /* hero (dark) */
 .hero{position:relative;overflow:hidden;color:#fff;margin-top:-73px;padding:145px 0 136px;background:radial-gradient(circle at 78% 28%,rgba(217,45,154,.38),transparent 46%),radial-gradient(circle at 8% 92%,rgba(244,166,77,.14),transparent 40%),linear-gradient(180deg,var(--ink),var(--ink2))}
 .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(600px circle at var(--sx,70%) var(--sy,30%),rgba(231,68,168,.16),transparent 60%);pointer-events:none}
-.hg{position:relative;display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center}
+.hc{position:relative;text-align:center;max-width:940px}
+.hc h1{font-size:clamp(44px,7.4vw,96px);text-wrap:balance}
+.hc .lead{margin:24px auto 34px;max-width:36em}
+.hc .btns,.hc .wa{justify-content:center}
 .hero .eb{color:#FF8FCB;display:inline-flex;align-items:center;gap:8px}
 .hero .eb::before{content:"";width:8px;height:8px;border-radius:50%;background:#FF5FB8;box-shadow:0 0 0 4px rgba(255,95,184,.22)}
 h1{font-size:clamp(40px,6vw,72px);font-weight:800;line-height:1.04}
@@ -68,15 +71,23 @@ h1{font-size:clamp(40px,6vw,72px);font-weight:800;line-height:1.04}
 .btns{display:flex;flex-wrap:wrap;gap:14px}
 .wa{display:flex;align-items:center;gap:8px;margin-top:22px;font-size:14px;color:rgba(255,255,255,.66)}
 .wa a{color:#fff;font-weight:600;text-decoration:underline;text-decoration-color:rgba(255,255,255,.35);text-underline-offset:3px}.wa a:hover{text-decoration-color:#FF8FCB}
-.hv{position:relative;transform:translate(calc(var(--mx,0)*-8px),calc(var(--my,0)*-8px));transition:transform .3s ease-out}
-.hv .ph{aspect-ratio:5/4;border-radius:24px;--a:#3B1A55;--b:#5A1F57;color:rgba(255,255,255,.7);box-shadow:0 30px 70px rgba(0,0,0,.35)}
-.hv .ph::before{border-color:rgba(255,255,255,.22)}
-.hand{position:absolute;top:-46px;right:4px;font:600 30px/1.05 "Caveat",cursive;color:#FF7FC4;transform:rotate(-5deg);max-width:6.5em;text-align:right;text-shadow:0 0 18px rgba(255,95,184,.55)}
-.note{position:absolute;left:-22px;bottom:30px;background:#FFE9A8;color:var(--tx);font:600 19px/1.3 "Caveat",cursive;padding:14px 18px;border-radius:6px;transform:rotate(-6deg);box-shadow:0 10px 22px rgba(0,0,0,.25)}
-.gs{position:absolute;right:-14px;bottom:-26px;background:rgba(255,255,255,.96);color:var(--tx);border-radius:16px;padding:14px 18px;box-shadow:0 18px 40px rgba(0,0,0,.28);min-width:220px}
-.gs b{display:block;font:700 13px var(--hf);margin-bottom:8px}
-.gs li{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--tx2);padding:2px 0}
-.gs .i{font-size:18px;color:var(--ok)}
+.fan{position:relative;margin-top:76px;transform:translate(calc(var(--mx,0)*-10px),calc(var(--my,0)*-6px));transition:transform .3s ease-out}
+.fr{display:flex;justify-content:center;align-items:center}
+.fr .ph{flex:none;width:clamp(150px,16vw,220px);aspect-ratio:4/5;margin:0 -14px;border-radius:20px;border:3px solid rgba(255,255,255,.92);box-shadow:0 24px 50px rgba(0,0,0,.38);transform:rotate(var(--r,0deg)) translateY(var(--y,0px));transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.fr .ph:nth-child(3){width:clamp(190px,21vw,290px);z-index:2}
+.fr .ph:nth-child(2),.fr .ph:nth-child(4){z-index:1}
+.fr .ph:hover{transform:rotate(0deg) translateY(calc(var(--y,0px) - 14px));z-index:3}
+.hand{position:absolute;z-index:4;font:600 30px/1.05 "Caveat",cursive;color:#FF7FC4;max-width:6.5em;text-shadow:0 0 18px rgba(255,95,184,.55)}
+.fan .hand{left:clamp(0px,2vw,30px);top:-24px;transform:rotate(-7deg)}
+.note{position:absolute;z-index:4;background:#FFE9A8;color:var(--tx);font:600 19px/1.3 "Caveat",cursive;padding:14px 18px;border-radius:6px;box-shadow:0 10px 22px rgba(0,0,0,.25)}
+.fan .note{right:clamp(0px,3vw,50px);bottom:-6px;transform:rotate(7deg)}
+.mql{text-align:center;margin-top:64px;font-size:14px;color:rgba(255,255,255,.6)}
+.mq{margin-top:14px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.mq ul{display:flex;gap:12px;width:max-content;animation:mq 40s linear infinite}
+.mq:hover ul{animation-play-state:paused}
+.mq li{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.86);font-size:14px;font-weight:500;white-space:nowrap}
+.mq .i{font-size:19px;color:#FF8FCB}
+@keyframes mq{to{transform:translateX(calc(-50% - 6px))}}
 /* trust strip */
 .mt{margin-top:-68px;position:relative;z-index:2}
 .ml{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border:1px solid var(--bd);border-radius:22px;box-shadow:var(--sh)}
@@ -84,11 +95,7 @@ h1{font-size:clamp(40px,6vw,72px);font-weight:800;line-height:1.04}
 .ml li+li{border-left:1px solid var(--bd)}
 .ml b{display:block;font:800 26px/1.1 var(--hf)}
 .ml span{font-size:14px;color:var(--tx2)}
-.lg{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px 14px;margin-top:36px}
-.lg>p{width:100%;text-align:center;font-size:14px;color:var(--tx2);margin-bottom:4px}
-.ch2{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;background:var(--p05);border:1px solid var(--bd);font-size:14px;font-weight:500}
-.ch2 .i{font-size:19px;color:var(--p7)}
-.lr{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:18px}
+.lr{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:36px}
 .lr .ph{height:64px;padding:8px;font-size:12px;--a:#FAF5FA;--b:#F6EEF7;color:#9A7E95}
 .lr .ph::before{inset:6px;border-width:1.5px;border-color:rgba(118,35,95,.18)}
 /* sections */
@@ -266,8 +273,7 @@ fieldset{border:0;margin:0 0 16px;padding:0}
  nav.on{display:block}
  nav ul{flex-direction:column}nav a,header.dk nav a{padding:14px 8px;font-size:16px;color:var(--tx2)}
  nav a[aria-current],header.dk nav a[aria-current]{box-shadow:none;color:var(--p7);background:var(--l1);border-radius:12px}
- .hg{grid-template-columns:1fr;gap:72px}.hero{padding:121px 0 120px}
- .gs{right:8px}
+ .hero{padding:121px 0 120px}.fan{margin-top:60px}
  .fg{grid-template-columns:1fr 1fr}
  .wy,.fq,.cb{grid-template-columns:1fr}.fq .ct{position:static}.wy{gap:36px}
  .ps{grid-template-columns:1fr;gap:28px;text-align:left}
@@ -282,14 +288,15 @@ fieldset{border:0;margin:0 0 16px;padding:0}
  .sc>*{flex-basis:85%}
  .ml li{padding:18px 14px;flex-direction:column;align-items:flex-start;gap:10px}
  .lr{grid-template-columns:1fr 1fr}
- .hand{font-size:24px;top:-44px}.note{left:-6px;font-size:17px}.gs{display:none}
+ .fr .ph:nth-child(1),.fr .ph:nth-child(5){display:none}.fr .ph{width:132px;margin:0 -10px}.fr .ph:nth-child(3){width:168px}
+ .fan .hand{font-size:22px;top:-40px;left:0}.fan .note{font-size:15px;padding:10px 12px;right:0;bottom:-18px}.mql{margin-top:52px}
  .lead{font-size:16px}.btns .btn{flex:1 1 100%}
  .ev{grid-template-columns:1fr}.f2{grid-template-columns:1fr}
  .fg{grid-template-columns:1fr}.cb{padding:44px 22px}
  .fab span{display:none}.fab{padding:0;width:56px;justify-content:center}
  footer{padding-bottom:96px}
 }
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}.rv{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}.rv{opacity:1;transform:none}.mq{-webkit-mask-image:none;mask-image:none}.mq ul{animation:none;flex-wrap:wrap;justify-content:center;width:auto}.mq [aria-hidden]{display:none}}
 </style>
 </head>
 <body>
@@ -309,34 +316,35 @@ fieldset{border:0;margin:0 0 16px;padding:0}
 <main>
 <!-- 1. Hero -->
 <section class="hero" id="top" aria-labelledby="h1">
- <div class="w hg">
-  <div>
-   <p class="eb">Digital growth partner · Bangladesh</p>
-   <h1 id="h1">Less Noise.<br><span class="g">More Growth.</span></h1>
-   <p class="lead">Gentecx helps ambitious brands turn scrolls into conversations, clicks into customers, and digital potential into measurable growth — with strategy, creative and performance working as one.</p>
-   <div class="btns">
-    <button class="btn p" type="button" data-book>Book a Growth Call <i class="i" aria-hidden="true">arrow_forward</i></button>
-    <a class="btn gh" href="#work">See What We’ve Built</a>
-   </div>
-   <p class="wa"><i class="i" aria-hidden="true">chat</i>Prefer a quick chat? <a href="https://wa.me/880XXXXXXXXXX" target="_blank" rel="noopener">WhatsApp us</a></p>
+ <div class="w hc">
+  <p class="eb">Digital growth partner · Bangladesh</p>
+  <h1 id="h1">Less Noise. <span class="g">More Growth.</span></h1>
+  <p class="lead">Gentecx helps ambitious brands turn scrolls into conversations, clicks into customers, and digital potential into measurable growth — with strategy, creative and performance working as one.</p>
+  <div class="btns">
+   <button class="btn p" type="button" data-book>Book a Growth Call <i class="i" aria-hidden="true">arrow_forward</i></button>
+   <a class="btn gh" href="#work">See What We’ve Built</a>
   </div>
-  <div class="hv" id="hv">
-   <!-- Replace with: <img src="hero-team.jpg" alt="Gentecx team planning a campaign" width="1000" height="800" fetchpriority="high"> -->
-   <div class="ph" role="img" aria-label="Placeholder: Gentecx team planning a campaign" data-l="Hero photo placeholder · team planning a campaign (5:4)"></div>
-   <p class="hand" aria-hidden="true">Built for the Feed. Focused on Results.</p>
-   <div class="note" aria-hidden="true">Strategy<br>Creative<br>Media<br>Data</div>
-   <div class="gs" aria-hidden="true"><b>One growth system</b><ul><li><i class="i">check_circle</i>Clear strategy</li><li><i class="i">check_circle</i>Creative that converts</li><li><i class="i">check_circle</i>Transparent reporting</li></ul></div>
-  </div>
+  <p class="wa"><i class="i" aria-hidden="true">chat</i>Prefer a quick chat? <a href="https://wa.me/880XXXXXXXXXX" target="_blank" rel="noopener">WhatsApp us</a></p>
  </div>
+ <div class="w fan" id="hv">
+  <!-- Replace each placeholder with a real image: <img src="..." alt="..." width="440" height="550"> -->
+  <div class="fr">
+   <div class="ph" role="img" aria-label="Placeholder: campaign creative" data-l="Campaign creative (4:5)" style="--r:-10deg;--y:34px;--a:#FFD0E4;--b:#E3D2F6"></div>
+   <div class="ph" role="img" aria-label="Placeholder: team at work" data-l="Team at work (4:5)" style="--r:-5deg;--y:10px;--a:#FFE3C8;--b:#FFD0DC"></div>
+   <div class="ph" role="img" aria-label="Placeholder: featured project" data-l="Featured project (4:5)" style="--a:#FFC9DD;--b:#D9C2F0"></div>
+   <div class="ph" role="img" aria-label="Placeholder: behind the scenes shoot" data-l="Behind the scenes (4:5)" style="--r:5deg;--y:10px;--a:#DCE8FB;--b:#F0DCF5"></div>
+   <div class="ph" role="img" aria-label="Placeholder: results review meeting" data-l="Results review (4:5)" style="--r:10deg;--y:34px;--a:#DDF3EA;--b:#E3D2F6"></div>
+  </div>
+  <p class="hand" aria-hidden="true">Built for the Feed. Focused on Results.</p>
+  <div class="note" aria-hidden="true">Strategy<br>Creative<br>Media<br>Data</div>
+ </div>
+ <p class="mql">Helping brands across</p>
+ <div class="mq"><ul id="ind" aria-label="Industries we work with"></ul></div>
 </section>
 
 <!-- 2. Trust strip -->
 <section class="mt w" aria-label="Proof points">
  <ul class="ml" id="ml"></ul>
- <div class="lg">
-  <p>Helping brands across</p>
-  <span id="ind" style="display:contents"></span>
- </div>
  <div class="lr" id="lr" aria-label="Client logos"></div>
  <p class="dm" style="text-align:center">Logo slots: add real client logos only with permission.</p>
 </section>
@@ -542,7 +550,8 @@ const FAQS=[["How much do I need to spend to get started?","It depends on your g
 /* ---- Render ---- */
 const tint=(b,c)=>`style="background:${b};color:${c}"`;
 $("#ml").innerHTML=METRICS.map(m=>`<li><div class="ib">${ic(m[0])}</div><div><b>${m[1]}</b><span>${m[2]}</span></div></li>`).join("");
-$("#ind").innerHTML=INDUSTRIES.map(d=>`<span class="ch2">${ic(d[0])}${d[1]}</span>`).join("");
+const chip=h=>d=>`<li${h}>${ic(d[0])}${d[1]}</li>`,IND=[...INDUSTRIES,...INDUSTRIES];
+$("#ind").innerHTML=IND.map((d,i)=>chip(i<INDUSTRIES.length?"":" aria-hidden=\"true\"")(d)).join("")+IND.map(chip(" aria-hidden=\"true\"")).join("");
 $("#lr").innerHTML=Array.from({length:6},(_,i)=>`<div class="ph" data-l="Client logo ${i+1}" aria-hidden="true"></div>`).join("");
 $("#pg").innerHTML=PROBLEMS.map(p=>`<li class="pc"><div class="ib" ${tint(p[3],p[4])}>${ic(p[0])}</div><div><h3>${p[1]}</h3><p>${p[2]}</p></div></li>`).join("");
 $("#sg").innerHTML=SERVICES.map(s=>`<li class="sv"><div class="ib sq" ${tint(s[4],s[5])}>${ic(s[0])}</div><h3>${s[1]}</h3><p>${s[2]}</p><a class="tl" href="#">${s[3]} ${ic("arrow_forward")}</a></li>`).join("")+`<li class="sv cta"><p class="hw">Not sure where to start?</p><h3>Let’s find your biggest growth lever first.</h3><p>One call. Clear priorities. No jargon.</p><button class="btn p" type="button" data-book>Show Me the Game Plan</button></li>`;
@@ -567,7 +576,7 @@ $$("[data-sc]").forEach(b=>b.onclick=()=>{const s=document.getElementById(b.data
 $$(".sc").forEach(s=>{const btn=[...$$(`[data-sc="${s.id}"]`)],u=()=>{btn[0].disabled=s.scrollLeft<4;btn[1].disabled=s.scrollLeft+s.clientWidth>=s.scrollWidth-4};s.addEventListener("scroll",u,{passive:true});addEventListener("resize",u);u()});
 /* ---- Header & nav ---- */
 const hdr=$("#hdr"),mb=$("#mb"),nav=$("#nav");
-new IntersectionObserver(([en])=>hdr.classList.toggle("dk",en.isIntersecting),{rootMargin:"-73px 0px 0px 0px"}).observe($(".hg"));
+new IntersectionObserver(([en])=>hdr.classList.toggle("dk",en.isIntersecting),{rootMargin:"-73px 0px 0px 0px"}).observe($(".hc"));
 const menu=o=>{nav.classList.toggle("on",o);mb.setAttribute("aria-expanded",o);mb.setAttribute("aria-label",o?"Close menu":"Open menu");mb.firstChild.textContent=o?"close":"menu"};
 mb.onclick=()=>menu(!nav.classList.contains("on"));
 nav.addEventListener("click",e=>{if(e.target.closest("a"))menu(false)});
