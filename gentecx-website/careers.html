@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>Careers at Gentex</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@400;500;600&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--b700:#76235F;--p6:#D92D9A;--p5:#E744A8;--c5:#F16F83;--o4:#F4A64D;--l1:#F4EAF7;--p05:#FFF5FA;--tx:#21182D;--tx2:#6D6574;--bd:#F0E6EF;--ok:#269B78;--fc:#246BFD;--g:linear-gradient(110deg,#D92D9A,#E744A8 48%,#F16F83);--r:18px;--sh:0 8px 28px rgba(45,18,48,.06);--shh:0 14px 36px rgba(45,18,48,.10);--hf:"Poppins","Inter",system-ui,sans-serif;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;font:400 16px/1.6 "Inter",system-ui,sans-serif;color:var(--tx);background:#fff;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:#fff;z-index:30}
+h1,h2,h3{font-family:var(--hf);margin:0;line-height:1.15;letter-spacing:-.01em}
+p{margin:0}a{color:inherit;text-decoration:none}ul,ol{list-style:none;margin:0;padding:0}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--fc);outline-offset:3px;border-radius:8px}
+.i{font-family:"Material Symbols Rounded";font-weight:400;font-style:normal;font-size:24px;line-height:1;display:inline-block;width:1em;overflow:hidden;white-space:nowrap;letter-spacing:normal;text-transform:none;font-feature-settings:"liga";flex:none}
+.w{max-width:1240px;margin-inline:auto;padding-inline:clamp(18px,3vw,32px)}
+.g{background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent}
+.eb{font:700 12px/1.4 var(--hf);letter-spacing:.14em;text-transform:uppercase;color:var(--b700);margin-bottom:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 26px;border-radius:999px;border:2px solid transparent;font:600 15px/1 "Inter",sans-serif;transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease,color .18s ease}
+.btn:hover{transform:translateY(-2px)}
+.p{background:var(--p6);color:#fff;box-shadow:0 8px 20px rgba(217,45,154,.28)}.p:hover{background:#C2208A}
+.s{background:#fff;color:var(--tx);border-color:#E6D3E3}.s:hover{border-color:var(--p6);color:var(--p6)}
+.o{background:#fff;color:#B8217F;border-color:var(--p6);min-height:44px;padding:0 20px}.o:hover{background:var(--p6);color:#fff}
+.ph{position:relative;display:grid;place-items:center;text-align:center;padding:16px;overflow:hidden;color:#7A3A6B;font:500 13px/1.4 "Inter",sans-serif;background:linear-gradient(135deg,var(--a,#FFD9E8),var(--b,#E8D5F5));border-radius:14px}
+.ph::after{content:attr(data-l)}
+.ph::before{content:"";position:absolute;inset:12px;border:2px dashed rgba(118,35,95,.28);border-radius:10px}
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--bd)}
+.nb{display:flex;align-items:center;gap:20px;min-height:72px}
+.logo{font:800 26px/1 var(--hf);letter-spacing:-.03em;display:flex;flex-direction:column}
+.logo small{font:500 9px/1.4 "Inter";letter-spacing:.06em;color:var(--tx2);margin-top:3px}
+nav{margin-left:auto}
+nav ul{display:flex;gap:4px}
+nav a{display:block;padding:8px 12px;font:500 14px/1.2 "Inter";border-radius:999px;color:var(--tx2)}
+nav a:hover{color:var(--tx)}
+nav a[aria-current]{color:#B8217F;font-weight:600;box-shadow:inset 0 -2px 0 var(--p6);border-radius:0}
+.mb{display:none;margin-left:auto;width:48px;height:48px;border:1px solid var(--bd);border-radius:50%;background:#fff;place-items:center}
+.nb .btn{min-height:44px;padding:0 22px}
+/* hero */
+.hero{background:radial-gradient(circle at 82% 18%,#FFD6E8 0,transparent 46%),linear-gradient(180deg,var(--p05),var(--l1));padding:72px 0 120px}
+.hg{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:center}
+h1{font-size:clamp(36px,5.4vw,62px);font-weight:800;line-height:1.08}
+.lead{font-size:18px;color:var(--tx2);max-width:30em;margin:20px 0 32px}
+.btns{display:flex;flex-wrap:wrap;gap:14px}
+.hv{position:relative}
+.hv .ph{aspect-ratio:5/4;border-radius:22px;--a:#FFC9DD;--b:#D9C2F0;box-shadow:var(--shh)}
+.hand{position:absolute;top:-34px;right:6px;font:600 28px/1.1 "Caveat",cursive;color:#C2208A;transform:rotate(-5deg);max-width:6em;text-align:right}
+.note{position:absolute;left:-18px;bottom:28px;background:#FFE9A8;color:var(--tx);font:600 14px/1.35 "Caveat",cursive;font-size:19px;padding:14px 18px;border-radius:6px;transform:rotate(-6deg);box-shadow:0 8px 18px rgba(45,18,48,.14)}
+/* metrics */
+.mt{margin-top:-64px;position:relative;z-index:2}
+.ml{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border:1px solid var(--bd);border-radius:22px;box-shadow:var(--sh)}
+.ml li{display:flex;align-items:center;gap:14px;padding:24px 28px}
+.ml li+li{border-left:1px solid var(--bd)}
+.ib{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--l1);color:#B8217F;flex:none}
+.ml b{display:block;font:800 26px/1.1 var(--hf)}
+.ml span{font-size:14px;color:var(--tx2)}
+/* sections */
+.sec{padding:96px 0}
+.ct{text-align:center;max-width:640px;margin:0 auto 48px}
+h2{font-size:clamp(28px,4vw,44px);font-weight:800}
+.sub{color:var(--tx2);margin-top:12px}
+.vg{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.vc{background:var(--p05);border:1px solid var(--bd);border-radius:var(--r);padding:28px 24px;transition:transform .18s ease,box-shadow .18s ease}
+.vc:hover{transform:translateY(-3px);box-shadow:var(--shh)}
+.vc .ib{border-radius:14px;margin-bottom:20px;width:52px;height:52px}
+h3{font-size:20px;font-weight:700;line-height:1.3}
+.vc p{font-size:15px;color:var(--tx2);margin-top:8px}
+.cu{background:linear-gradient(180deg,#fff,var(--p05))}
+.ch{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:32px}
+.ch .sub{max-width:34em}
+.ar{display:flex;gap:10px}
+.ar button{width:48px;height:48px;border-radius:50%;border:1px solid #E6D3E3;background:#fff;display:grid;place-items:center;color:var(--tx);transition:background-color .18s,color .18s}
+.ar button:hover{background:var(--p6);color:#fff;border-color:var(--p6)}
+.sc{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;scrollbar-width:thin}
+.sc>*{scroll-snap-align:start;flex:0 0 calc((100% - 54px)/4)}
+.sc .ph{aspect-ratio:4/5}
+/* jobs */
+.fl{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
+.fl button{min-height:44px;padding:0 20px;border-radius:999px;border:1px solid #E6D3E3;background:#fff;font-weight:500;font-size:14px;color:var(--tx);transition:all .18s}
+.fl button:hover{border-color:var(--p6)}
+.fl button[aria-pressed=true]{background:var(--p6);border-color:var(--p6);color:#fff;font-weight:600}
+.jb{display:flex;align-items:center;gap:20px;justify-content:space-between;background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:22px 26px;margin-bottom:14px;box-shadow:var(--sh);transition:transform .18s,box-shadow .18s}
+.jb:hover{transform:translateY(-2px);box-shadow:var(--shh)}
+.jb h3{font-size:19px}
+.mx{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;margin-top:10px;font-size:14px;color:var(--tx2)}
+.mx span{display:inline-flex;align-items:center;gap:6px}
+.mx .i{font-size:18px}
+.bg{background:var(--l1);color:#5B1D6B;font-weight:600;padding:3px 12px;border-radius:999px;font-size:13px}
+.em{text-align:center;padding:48px 20px;background:var(--p05);border-radius:var(--r);color:var(--tx2)}
+/* process */
+.pr{background:var(--p05)}
+.ps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;counter-reset:s}
+.ps li{position:relative}
+.ps li:not(:last-child)::after{content:"";position:absolute;top:28px;left:calc(50% + 44px);right:calc(-50% + 44px);border-top:2px dashed #E3B9D6}
+.ps .ib{width:56px;height:56px;margin:0 auto 16px;position:relative;z-index:1}
+.n{display:block;font:800 14px var(--hf);color:#B8217F;margin-bottom:4px}
+.ps p{font-size:15px;color:var(--tx2);margin-top:6px}
+/* stories */
+.tc{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:28px;box-shadow:var(--sh);position:relative;display:flex;flex-direction:column;gap:20px}
+.tc .q{position:absolute;top:18px;right:22px;font:800 64px/1 var(--hf);color:var(--l1)}
+.tc p{position:relative;font-size:16px}
+.tc .ph{width:64px;height:64px;border-radius:50%;padding:0;font-size:0;flex:none}
+.tc .ph::before{display:none}
+.who{display:flex;align-items:center;gap:14px;margin-top:auto}
+.who b{display:block;font-family:var(--hf)}
+.who span{font-size:14px;color:var(--tx2)}
+.sc.t>*{flex-basis:calc((100% - 36px)/3)}
+.dm{font-size:13px;color:var(--tx2);margin-top:16px}
+/* cta */
+.cb{position:relative;overflow:hidden;border-radius:26px;padding:64px clamp(24px,6vw,72px);background:linear-gradient(110deg,#9E1C74,#D92D9A 60%,#E8587F);color:#fff}
+.cb::after{content:"";position:absolute;right:-60px;top:-60px;width:320px;height:320px;border-radius:50%;border:2px solid rgba(255,255,255,.35);box-shadow:0 0 0 36px rgba(255,255,255,.08),0 0 0 72px rgba(255,255,255,.05)}
+.cb>*{position:relative;z-index:1}
+.cb .eb{color:#FFE3F2}.cb h2{max-width:12em}.cb p.sub{color:#FFEAF5;max-width:30em;margin-bottom:28px}
+.cb .btn{background:#fff;color:#8A1766}.cb .btn:hover{background:#FFE9F4}
+/* footer */
+footer{background:var(--p05);border-top:1px solid var(--bd);margin-top:96px;padding:56px 0 32px}
+.fg{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+footer h3{font-size:15px;margin-bottom:12px}
+footer li{margin-bottom:6px;font-size:15px;color:var(--tx2)}
+footer a:hover{color:var(--p6);text-decoration:underline}
+.fb{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;border-top:1px solid var(--bd);margin-top:36px;padding-top:20px;font-size:14px;color:var(--tx2)}
+/* modal */
+dialog{width:min(560px,calc(100vw - 24px));max-height:calc(100dvh - 24px);border:0;border-radius:22px;padding:0;color:var(--tx);box-shadow:0 30px 80px rgba(45,18,48,.3)}
+dialog::backdrop{background:rgba(45,18,48,.45)}
+.mh{display:flex;justify-content:space-between;gap:16px;padding:24px 28px 8px}
+.mh h2{font-size:24px}.mh p{font-size:14px;color:var(--tx2);margin-top:4px}
+.x{width:44px;height:44px;border-radius:50%;border:1px solid var(--bd);background:#fff;display:grid;place-items:center;flex:none}
+form{padding:12px 28px 28px}
+.f{margin-bottom:16px}
+label{display:block;font-weight:600;font-size:14px;margin-bottom:6px}
+label em{color:#B3261E;font-style:normal}
+input,textarea{width:100%;font:inherit;padding:11px 14px;border:1px solid #D9C8D6;border-radius:12px;background:#fff;color:var(--tx);min-height:46px}
+input[aria-invalid=true],textarea[aria-invalid=true]{border-color:#B3261E}
+.er{color:#B3261E;font-size:13px;margin-top:4px;min-height:0}
+.ok{padding:40px 28px;text-align:center}
+.ok .ib{margin:0 auto 16px;background:#DDF3EA;color:var(--ok);width:64px;height:64px}
+.ok p{color:var(--tx2);margin:8px 0 24px}
+@media(max-width:1099px){
+ nav ul{gap:0}nav a{padding:8px 8px;font-size:13px}
+ .vg{grid-template-columns:1fr 1fr}.sc>*{flex-basis:calc((100% - 18px)/2)}.sc.t>*{flex-basis:calc((100% - 18px)/2)}
+ .ml{grid-template-columns:1fr 1fr}.ml li:nth-child(3){border-left:0}.ml li:nth-child(n+3){border-top:1px solid var(--bd)}
+}
+@media(max-width:899px){
+ .mb{display:grid}.nb>.btn{display:none}
+ nav{position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--bd);margin:0;padding:8px clamp(18px,3vw,32px) 20px;display:none}
+ nav.on{display:block}
+ nav ul{flex-direction:column}nav a{padding:14px 8px;font-size:16px}
+ nav a[aria-current]{box-shadow:none;color:#B8217F;background:var(--l1);border-radius:12px}
+ .hg{grid-template-columns:1fr;gap:56px}.hero{padding:48px 0 104px}
+ .fg{grid-template-columns:1fr 1fr}
+ .ps{grid-template-columns:1fr;gap:28px;text-align:left}
+ .ps li{display:grid;grid-template-columns:56px 1fr;column-gap:18px}
+ .ps .ib{margin:0;grid-row:span 3}
+ .ps li:not(:last-child)::after{top:62px;bottom:-28px;left:27px;right:auto;border-top:0;border-left:2px dashed #E3B9D6}
+}
+@media(max-width:639px){
+ .sec{padding:56px 0}.vg{grid-template-columns:1fr}.sc>*,.sc.t>*{flex-basis:82%}
+ .ml li{padding:18px 14px;flex-direction:column;align-items:flex-start;gap:10px}
+ .jb{flex-direction:column;align-items:stretch}.jb .btn{width:100%}
+ .ch{flex-direction:column;align-items:flex-start}
+ .hand{font-size:23px;top:-40px}.note{left:-6px}
+ .lead{font-size:16px}.btns .btn{flex:1 1 100%}
+ .fg{grid-template-columns:1fr}.cb{padding:44px 24px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+ <div class="w nb">
+  <a class="logo" href="#top" aria-label="Gentex home">gentex<small>Growing | Innovation | Solution</small></a>
+  <button class="mb" id="mb" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><i class="i" aria-hidden="true">menu</i></button>
+  <nav id="nav" aria-label="Main">
+   <ul>
+    <li><a href="#top">Home</a></li><li><a href="#">About</a></li><li><a href="#">Services</a></li><li><a href="#">Portfolio</a></li><li><a href="#">Case Studies</a></li><li><a href="#">Blog</a></li><li><a href="#top" aria-current="page">Careers</a></li><li><a href="#">Contact</a></li>
+   </ul>
+  </nav>
+  <a class="btn p" href="#jobs">Apply Now</a>
+ </div>
+</header>
+
+<main>
+<section class="hero" id="top" aria-labelledby="h1">
+ <div class="w hg">
+  <div>
+   <p class="eb">Careers at Gentex</p>
+   <h1 id="h1">Grow Your Career. <span class="g">Build What’s Next.</span></h1>
+   <p class="lead">At Gentex, we don’t just work — we create, experiment, learn and grow together. Join a team that values ideas, ownership and real impact.</p>
+   <div class="btns">
+    <a class="btn p" href="#jobs">View Open Positions <i class="i" aria-hidden="true">arrow_forward</i></a>
+    <a class="btn s" href="#culture"><i class="i" aria-hidden="true">play_circle</i> Life at Gentex</a>
+   </div>
+  </div>
+  <div class="hv">
+   <!-- Replace with: <img src="team.jpg" alt="..." width="1000" height="800" fetchpriority="high"> -->
+   <div class="ph" role="img" aria-label="Placeholder: team collaborating around a laptop" data-l="Hero photo placeholder · team at laptop (5:4)"></div>
+   <p class="hand" aria-hidden="true">Great People Build Great Brands</p>
+   <div class="note" aria-hidden="true">Ideas<br>People<br>Growth<br>Impact</div>
+  </div>
+ </div>
+</section>
+
+<section class="mt w" aria-label="Company snapshot">
+ <ul class="ml" id="ml"></ul>
+</section>
+
+<section class="sec" aria-labelledby="h-v">
+ <div class="w">
+  <div class="ct">
+   <h2 id="h-v">More Than <span class="g">Just a Job</span></h2>
+   <p class="sub">We’re a team of doers, creators and problem solvers. Here’s what makes working at Gentex special.</p>
+  </div>
+  <ul class="vg" id="vg"></ul>
+ </div>
+</section>
+
+<section class="sec cu" id="culture" aria-labelledby="h-c">
+ <div class="w">
+  <div class="ch">
+   <div>
+    <p class="eb">Life at Gentex</p>
+    <h2 id="h-c">A Glimpse Into Our <span class="g">Work Culture</span></h2>
+    <p class="sub">From brainstorming ideas to celebrating milestones, here are some moments from our everyday life.</p>
+   </div>
+   <div class="ar"><button data-sc="gal" data-d="-1" aria-label="Previous photos"><i class="i" aria-hidden="true">chevron_left</i></button><button data-sc="gal" data-d="1" aria-label="Next photos"><i class="i" aria-hidden="true">chevron_right</i></button></div>
+  </div>
+  <div class="sc" id="gal" tabindex="0" role="region" aria-label="Work culture photos" id="gal"></div>
+ </div>
+</section>
+
+<section class="sec" id="jobs" aria-labelledby="h-j">
+ <div class="w">
+  <div class="ct" style="text-align:left;margin-left:0">
+   <p class="eb">Open Positions</p>
+   <h2 id="h-j">Current <span class="g">Opportunities</span></h2>
+   <p class="sub">Find the right role for you and be part of our journey.</p>
+  </div>
+  <div class="fl" id="fl" role="group" aria-label="Filter positions by category"></div>
+  <p class="sr" id="cnt" role="status" style="position:absolute;left:-9999px">Showing 5 positions</p>
+  <ul id="jl"></ul>
+  <p class="dm">Sample listings for demonstration. Confirm real vacancies before launch.</p>
+ </div>
+</section>
+
+<section class="sec pr" aria-labelledby="h-p">
+ <div class="w">
+  <div class="ct">
+   <p class="eb">Our Hiring Process</p>
+   <h2 id="h-p">Simple. Transparent. <span class="g">People First.</span></h2>
+   <p class="sub">A smooth and transparent process to make sure it’s the right fit for both of us.</p>
+  </div>
+  <ol class="ps" id="ps"></ol>
+ </div>
+</section>
+
+<section class="sec" aria-labelledby="h-t">
+ <div class="w">
+  <div class="ch">
+   <div>
+    <p class="eb">Team Stories</p>
+    <h2 id="h-t">What Our <span class="g">Team Says</span></h2>
+    <p class="sub">Real stories from real people who are growing with Gentex.</p>
+   </div>
+   <div class="ar"><button data-sc="tst" data-d="-1" aria-label="Previous stories"><i class="i" aria-hidden="true">chevron_left</i></button><button data-sc="tst" data-d="1" aria-label="Next stories"><i class="i" aria-hidden="true">chevron_right</i></button></div>
+  </div>
+  <div class="sc t" id="tst" tabindex="0" role="region" aria-label="Team testimonials"></div>
+  <p class="dm">Demonstration quotes and names. Replace with approved stories from real team members.</p>
+ </div>
+</section>
+
+<section class="w" aria-labelledby="h-f">
+ <div class="cb">
+  <p class="eb">Ready to join our team?</p>
+  <h2 id="h-f">Let’s Build the Future Together</h2>
+  <p class="sub">Explore open positions and take the next step in your career with Gentex.</p>
+  <a class="btn" href="#jobs">View Open Positions <i class="i" aria-hidden="true">arrow_forward</i></a>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="w">
+  <div class="fg">
+   <div><a class="logo" href="#top">gentex<small>Growing | Innovation | Solution</small></a><p class="sub" style="max-width:24em">[Short company description placeholder.] A creative team building brands, websites and campaigns.</p></div>
+   <div><h3>Explore</h3><ul><li><a href="#top">Careers</a></li><li><a href="#culture">Life at Gentex</a></li><li><a href="#jobs">Open positions</a></li><li><a href="#">Contact</a></li></ul></div>
+   <div><h3>Contact</h3><ul><li>[Email placeholder]</li><li>[Phone placeholder]</li><li>[Address placeholder]</li></ul></div>
+   <div><h3>Follow</h3><ul><li><a href="#">LinkedIn</a></li><li><a href="#">Facebook</a></li><li><a href="#">Instagram</a></li></ul></div>
+  </div>
+  <div class="fb"><span>© 2026 Gentex. All rights reserved.</span><a href="#">Privacy Policy</a></div>
+ </div>
+</footer>
+
+<dialog id="dlg" aria-labelledby="dt">
+ <div id="fw">
+  <div class="mh">
+   <div><h2 id="dt">Apply now</h2><p>Applying for: <strong id="role"></strong></p><p>Fields marked * are required.</p></div>
+   <button class="x" id="cl" type="button" aria-label="Close application form"><i class="i" aria-hidden="true">close</i></button>
+  </div>
+  <form id="af" novalidate>
+   <div class="f"><label for="n">Full name <em>*</em></label><input id="n" name="name" autocomplete="name" aria-describedby="e-n"><p class="er" id="e-n"></p></div>
+   <div class="f"><label for="e">Email address <em>*</em></label><input id="e" name="email" type="email" autocomplete="email" aria-describedby="e-e"><p class="er" id="e-e"></p></div>
+   <div class="f"><label for="ph">Phone number <em>*</em></label><input id="ph" name="phone" type="tel" autocomplete="tel" aria-describedby="e-ph"><p class="er" id="e-ph"></p></div>
+   <div class="f"><label for="u">LinkedIn or portfolio URL</label><input id="u" name="link" type="url" placeholder="https://" aria-describedby="e-u"><p class="er" id="e-u"></p></div>
+   <div class="f"><label for="cv">Cover letter (optional)</label><textarea id="cv" name="cover" rows="3"></textarea></div>
+   <div class="f"><label for="rs">Resume (PDF or Word, up to 5 MB) <em>*</em></label><input id="rs" name="resume" type="file" accept=".pdf,.doc,.docx" aria-describedby="e-rs"><p class="er" id="e-rs"></p></div>
+   <button class="btn p" id="sb" type="submit" style="width:100%">Submit Application</button>
+  </form>
+ </div>
+ <div class="ok" id="ok" hidden>
+  <div class="ib"><i class="i" aria-hidden="true">check_circle</i></div>
+  <h2 tabindex="-1" id="okh">Form checked</h2>
+  <p>This is a front-end demo, so nothing was sent to Gentex. Connect <code>submitApplication()</code> to a real endpoint to receive applications.</p>
+  <button class="btn p" id="ok-c" type="button">Close</button>
+ </div>
+</dialog>
+
+<script>
+const $=s=>document.querySelector(s),ic=n=>`<i class="i" aria-hidden="true">${n}</i>`;
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+/* ---- Content (edit here) ---- */
+const METRICS=[["groups","25+","Team Members"],["workspace_premium","5+","Years of Experience"],["task_alt","50+","Projects Delivered"],["all_inclusive","∞","Growth Opportunities"]];
+const VALUES=[["school","Learning Culture","We learn, share and grow together every day.","#EFE3FB","#6B35B0"],["rocket_launch","Real Impact","Your work directly contributes to real brands and real growth.","#FFE0EC","#B8217F"],["lightbulb","Creative Freedom","Bring your ideas, try new things and make an impact.","#FFEBCF","#A85D00"],["favorite","Supportive Team","A friendly, collaborative environment where everyone’s voice matters.","#FFDCE4","#C0213F"]];
+const GALLERY=[["Team collaboration","#FFD9E8","#E8D5F5"],["Brainstorming session","#FFE3C8","#FFD0DC"],["Working at desks","#DCE8FB","#F0DCF5"],["Team celebration","#FFD0E4","#FFE6C8"]];
+const JOBS=[["Senior Digital Marketing Executive","Marketing"],["Content Creator (Video & Social Media)","Content"],["Graphic Designer","Creative"],["Web Developer (WordPress / Next.js)","Web & Tech"],["Business Development Executive","Operations"]].map(([t,c])=>({title:t,cat:c,loc:"Dhaka, Bangladesh",type:"Full-time"}));
+const CATS=["All","Marketing","Creative","Web & Tech","Content","Operations"];
+const STEPS=[["description","Apply Online","Submit your application through our career page."],["manage_search","Initial Screening","We review your profile and get in touch."],["forum","Interview","Share your skills, experience and ideas with the team."],["waving_hand","Welcome Aboard","Start your journey with Gentex."]];
+const STORIES=[["Sample Name A","Content Creator","Gentex gives me the freedom to be creative and the support to grow. Every day feels like a new learning opportunity."],["Sample Name B","Digital Marketing Executive","The team is friendly, the culture is amazing and the work is meaningful. I feel valued here."],["Sample Name C","Graphic Designer","At Gentex, ideas turn into real projects. It’s a great place to learn, take ownership and grow."]];
+/* ---- Render ---- */
+$("#ml").innerHTML=METRICS.map(m=>`<li><div class="ib">${ic(m[0])}</div><div><b>${m[1]}</b><span>${m[2]}</span></div></li>`).join("");
+$("#vg").innerHTML=VALUES.map(v=>`<li class="vc"><div class="ib" style="background:${v[3]};color:${v[4]}">${ic(v[0])}</div><h3>${v[1]}</h3><p>${v[2]}</p></li>`).join("");
+$("#gal").innerHTML=GALLERY.map(g=>`<div class="ph" role="img" aria-label="Placeholder photo: ${g[0]}" data-l="${g[0]} · photo placeholder (4:5)" style="--a:${g[1]};--b:${g[2]}"></div>`).join("");
+$("#ps").innerHTML=STEPS.map((s,i)=>`<li><div class="ib">${ic(s[0])}</div><span class="n">Step 0${i+1}</span><h3>${s[1]}</h3><p>${s[2]}</p></li>`).join("");
+$("#tst").innerHTML=STORIES.map(s=>`<figure class="tc" style="margin:0"><span class="q" aria-hidden="true">“</span><p>${s[2]}</p><figcaption class="who"><div class="ph" role="img" aria-label="Placeholder portrait" data-l="Portrait"></div><div><b>${s[0]}</b><span>${s[1]}</span></div></figcaption></figure>`).join("");
+/* ---- Carousels ---- */
+document.querySelectorAll("[data-sc]").forEach(b=>b.onclick=()=>{const s=document.getElementById(b.dataset.sc);s.scrollBy({left:b.dataset.d*s.clientWidth*.8,behavior:reduce?"auto":"smooth"})});
+/* ---- Nav ---- */
+const mb=$("#mb"),nav=$("#nav");
+const menu=o=>{nav.classList.toggle("on",o);mb.setAttribute("aria-expanded",o);mb.setAttribute("aria-label",o?"Close menu":"Open menu");mb.firstChild.textContent=o?"close":"menu"};
+mb.onclick=()=>menu(!nav.classList.contains("on"));
+nav.addEventListener("click",e=>{if(e.target.closest("a"))menu(false)});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&nav.classList.contains("on")){menu(false);mb.focus()}});
+/* ---- Jobs ---- */
+let cur="All";
+function renderJobs(){
+ const L=JOBS.filter(j=>cur==="All"||j.cat===cur);
+ $("#jl").innerHTML=L.length?L.map(j=>`<li class="jb"><div><h3>${j.title}</h3><div class="mx"><span class="bg">${j.cat}</span><span>${ic("location_on")}${j.loc}</span><span>${ic("schedule")}${j.type}</span></div></div><button class="btn o" data-job="${j.title}" aria-label="Apply now for ${j.title}">Apply Now ${ic("arrow_forward")}</button></li>`).join(""):`<li class="em"><h3>No ${cur} roles right now</h3><p class="sub">Check back soon, or view all positions.</p></li>`;
+ $("#cnt").textContent=`Showing ${L.length} position${L.length===1?"":"s"}${cur==="All"?"":" in "+cur}`;
+}
+$("#fl").innerHTML=CATS.map(c=>`<button type="button" aria-pressed="${c===cur}">${c}</button>`).join("");
+$("#fl").onclick=e=>{const b=e.target.closest("button");if(!b)return;cur=b.textContent;$("#fl").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));renderJobs()};
+renderJobs();
+/* ---- Application modal ---- */
+const dlg=$("#dlg"),af=$("#af");
+$("#jl").onclick=e=>{const b=e.target.closest("[data-job]");if(!b)return;$("#role").textContent=b.dataset.job;af.reset();clr();$("#fw").hidden=false;$("#ok").hidden=true;dlg.showModal();$("#n").focus()};
+const close=()=>dlg.close();
+$("#cl").onclick=close;$("#ok-c").onclick=close;
+dlg.addEventListener("click",e=>{if(e.target===dlg)close()});
+function clr(){af.querySelectorAll("input,textarea").forEach(i=>i.removeAttribute("aria-invalid"));af.querySelectorAll(".er").forEach(p=>p.textContent="")}
+function validate(){
+ clr();const bad=[],v=id=>$("#"+id).value.trim(),err=(id,e,m)=>{$("#"+id).setAttribute("aria-invalid","true");$("#e-"+e).textContent=m;bad.push(id)};
+ if(v("n").length<2)err("n","n","Enter your full name.");
+ if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v("e")))err("e","e","Enter a valid email address, like name@example.com.");
+ if(!/^\+?[\d\s()-]{7,}$/.test(v("ph")))err("ph","ph","Enter a phone number with at least 7 digits.");
+ if(v("u")){try{new URL(v("u"))}catch{err("u","u","Enter a full URL starting with https://")}}
+ const f=$("#rs").files[0];
+ if(!f)err("rs","rs","Attach your resume as a PDF or Word file.");
+ else if(!/\.(pdf|docx?)$/i.test(f.name))err("rs","rs","Use a PDF or Word file (.pdf, .doc, .docx).");
+ else if(f.size>5242880)err("rs","rs","File is larger than 5 MB. Upload a smaller file.");
+ return bad;
+}
+/* Swap this stub for a real API call (e.g. fetch("/api/apply",{method:"POST",body:data})). */
+async function submitApplication(data){await new Promise(r=>setTimeout(r,900));return{ok:true}}
+af.addEventListener("submit",async e=>{
+ e.preventDefault();const bad=validate();
+ if(bad.length){$("#"+bad[0]).focus();return}
+ const sb=$("#sb");sb.disabled=true;sb.textContent="Submitting…";sb.setAttribute("aria-busy","true");
+ try{await submitApplication(new FormData(af));$("#fw").hidden=true;$("#ok").hidden=false;$("#okh").focus()}
+ finally{sb.disabled=false;sb.textContent="Submit Application";sb.removeAttribute("aria-busy")}
+});
+/* ---- Motion & mouse effects ---- */
+const fine=matchMedia("(hover:hover) and (pointer:fine)").matches&&!reduce;
+addEventListener("scroll",()=>{const h=document.documentElement;$("header").style.setProperty("--sp",Math.min(1,scrollY/Math.max(1,h.scrollHeight-innerHeight)))},{passive:true});
+if(!reduce){
+ const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target)}}),{threshold:.15});
+ document.querySelectorAll(".ct,.ch,.vc,#gal>*,.fl,.ps li,.dm,.cb,.tc,.ml li").forEach(el=>{el.style.setProperty("--i",[...el.parentNode.children].indexOf(el));el.classList.add("rv");io.observe(el)});
+ const co=new IntersectionObserver(([en])=>{if(!en.isIntersecting)return;co.disconnect();document.querySelectorAll("#ml b").forEach(b=>{const t=parseInt(b.textContent);if(!t)return;const s=b.textContent.replace(/\d+/,""),t0=performance.now(),f=n=>{const p=Math.min((n-t0)/1300,1);b.textContent=Math.round(t*(1-Math.pow(1-p,3)))+s;if(p<1)requestAnimationFrame(f)};b.textContent="0"+s;requestAnimationFrame(f)})},{threshold:.4});
+ co.observe($("#ml"));
+}
+if(fine){
+ [".hero",".cb"].forEach(q=>{const el=$(q);el.addEventListener("pointermove",e=>{const r=el.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;el.style.setProperty("--mx",(x/r.width-.5)*2);el.style.setProperty("--my",(y/r.height-.5)*2);el.style.setProperty("--sx",x+"px");el.style.setProperty("--sy",y+"px")});el.addEventListener("pointerleave",()=>{el.style.setProperty("--mx",0);el.style.setProperty("--my",0)})});
+ const card=".vc,.jb,.tc";
+ document.addEventListener("pointermove",e=>{
+  const c=e.target.closest&&e.target.closest(card);
+  if(c){const r=c.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;c.style.setProperty("--gx",x+"px");c.style.setProperty("--gy",y+"px");if(!c.matches(".jb")){c.style.setProperty("--ry",(x/r.width-.5)*10+"deg");c.style.setProperty("--rx",(.5-y/r.height)*10+"deg")}}
+  const b=e.target.closest&&e.target.closest(".btn");
+  if(b){const r=b.getBoundingClientRect();b.style.translate=`${(e.clientX-r.left-r.width/2)*.18}px ${(e.clientY-r.top-r.height/2)*.28}px`}
+ });
+ document.addEventListener("pointerout",e=>{
+  const c=e.target.closest&&e.target.closest(card);if(c&&!c.contains(e.relatedTarget)){c.style.setProperty("--rx","0deg");c.style.setProperty("--ry","0deg")}
+  const b=e.target.closest&&e.target.closest(".btn");if(b&&!b.contains(e.relatedTarget))b.style.translate="";
+ });
+ document.querySelectorAll(".sc").forEach(s=>{let d=0,x=0,l=0;
+  s.addEventListener("pointerdown",e=>{if(e.pointerType!=="mouse")return;d=1;x=e.clientX;l=s.scrollLeft;s.style.scrollSnapType="none";s.classList.add("dr")});
+  addEventListener("pointermove",e=>{if(d)s.scrollLeft=l-(e.clientX-x)});
+  addEventListener("pointerup",()=>{if(d){d=0;s.style.scrollSnapType="";s.classList.remove("dr")}});
+ });
+}
+</script>
+</body>
+</html>
