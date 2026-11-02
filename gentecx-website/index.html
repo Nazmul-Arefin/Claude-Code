@@ -306,7 +306,7 @@ fieldset{border:0;margin:0 0 16px;padding:0}
   <button class="mb" id="mb" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><i class="i" aria-hidden="true">menu</i></button>
   <nav id="nav" aria-label="Main">
    <ul>
-    <li><a href="#top" aria-current="page">Home</a></li><li><a href="about.html">About</a></li><li><a href="#services">Services</a></li><li><a href="#work">Portfolio</a></li><li><a href="#case">Case Studies</a></li><li><a href="#">Blog</a></li><li><a href="careers.html">Careers</a></li><li><a href="#">Contact</a></li>
+    <li><a href="#top" aria-current="page">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="#work">Portfolio</a></li><li><a href="#case">Case Studies</a></li><li><a href="#">Blog</a></li><li><a href="careers.html">Careers</a></li><li><a href="#">Contact</a></li>
    </ul>
   </nav>
   <button class="btn p" type="button" data-book>Book a Growth Call</button>
@@ -554,13 +554,14 @@ const chip=h=>d=>`<li${h}>${ic(d[0])}${d[1]}</li>`,IND=[...INDUSTRIES,...INDUSTR
 $("#ind").innerHTML=IND.map((d,i)=>chip(i<INDUSTRIES.length?"":" aria-hidden=\"true\"")(d)).join("")+IND.map(chip(" aria-hidden=\"true\"")).join("");
 $("#lr").innerHTML=Array.from({length:6},(_,i)=>`<div class="ph" data-l="Client logo ${i+1}" aria-hidden="true"></div>`).join("");
 $("#pg").innerHTML=PROBLEMS.map(p=>`<li class="pc"><div class="ib" ${tint(p[3],p[4])}>${ic(p[0])}</div><div><h3>${p[1]}</h3><p>${p[2]}</p></div></li>`).join("");
-$("#sg").innerHTML=SERVICES.map(s=>`<li class="sv"><div class="ib sq" ${tint(s[4],s[5])}>${ic(s[0])}</div><h3>${s[1]}</h3><p>${s[2]}</p><a class="tl" href="#">${s[3]} ${ic("arrow_forward")}</a></li>`).join("")+`<li class="sv cta"><p class="hw">Not sure where to start?</p><h3>Let’s find your biggest growth lever first.</h3><p>One call. Clear priorities. No jargon.</p><button class="btn p" type="button" data-book>Show Me the Game Plan</button></li>`;
+const SLUGS=["performance-marketing", "social-media", "branding-strategy", "content-creative", "seo", "website", "lead-generation"];
+$("#sg").innerHTML=SERVICES.map((s,i)=>`<li class="sv"><div class="ib sq" ${tint(s[4],s[5])}>${ic(s[0])}</div><h3>${s[1]}</h3><p>${s[2]}</p><a class="tl" href="services.html#${SLUGS[i]}">${s[3]} ${ic("arrow_forward")}</a></li>`).join("")+`<li class="sv cta"><p class="hw">Not sure where to start?</p><h3>Let’s find your biggest growth lever first.</h3><p>One call. Clear priorities. No jargon.</p><button class="btn p" type="button" data-book>Show Me the Game Plan</button></li>`;
 $("#wg").innerHTML=WORK.map(w=>`<li class="wc"><div class="ph" role="img" aria-label="Placeholder project image: ${w[0]}" data-l="${w[0]} project · image (16:11)" style="--a:${w[3]};--b:${w[4]}"></div><div class="wb"><div class="tg"><span class="bg">${w[0]}</span><span class="bg n">${w[1]}</span></div><h3>${w[2]}</h3><p class="oc">${ic("insights")}<span>Outcome: [add verified result + time period]</span></p><a class="tl" href="#">Read the Case Study ${ic("arrow_forward")}</a></div></li>`).join("");
 $("#ps").innerHTML=STEPS.map((s,i)=>`<li><div class="ib" ${tint(s[3],s[4])}>${ic(s[0])}</div><span class="n">0${i+1}</span><h3>${s[1]}</h3><p>${s[2]}</p></li>`).join("");
 $("#dg").innerHTML=WHY.map(d=>`<li class="dc"><div class="ib sq" ${tint(d[3],d[4])}>${ic(d[0])}</div><h3>${d[1]}</h3><p>${d[2]}</p></li>`).join("");
 $("#tst").innerHTML=STORIES.map(s=>`<figure class="tc"><span class="q" aria-hidden="true">“</span><div class="st" role="img" aria-label="5 out of 5">${ic("star").repeat(5)}</div><p>${s[2]}</p><figcaption class="who"><div class="ph" role="img" aria-label="Placeholder portrait" data-l=""></div><div><b>${s[0]}</b><span>${s[1]}</span></div></figcaption></figure>`).join("");
 $("#fq").innerHTML=FAQS.map((q,i)=>`<details${i?"":" open"}><summary>${q[0]}${ic("add")}</summary><p>${q[1]}</p></details>`).join("");
-$("#fs").innerHTML=SERVICES.map(s=>`<li><a href="#">${s[1]}</a></li>`).join("");
+$("#fs").innerHTML=SERVICES.map((s,i)=>`<li><a href="services.html#${SLUGS[i]}">${s[1]}</a></li>`).join("");
 $("#sv").innerHTML=`<option value="">Choose a service</option>`+SERVICES.map(s=>`<option>${s[1]}</option>`).join("")+`<option>Not sure yet</option>`;
 $("#ev").innerHTML=EVIDENCE.map(e=>`<div><b>${e[0]}</b><span>${e[1]}</span></div>`).join("");
 /* ---- Case study tabs ---- */

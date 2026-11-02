@@ -339,7 +339,7 @@ fieldset{border:0;margin:0 0 16px;padding:0}
   <button class="mb" id="mb" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><i class="i" aria-hidden="true">menu</i></button>
   <nav id="nav" aria-label="Main">
    <ul>
-    <li><a href="index.html">Home</a></li><li><a href="about.html" aria-current="page">About</a></li><li><a href="index.html#services">Services</a></li><li><a href="index.html#work">Portfolio</a></li><li><a href="index.html#case">Case Studies</a></li><li><a href="#">Blog</a></li><li><a href="careers.html">Careers</a></li><li><a href="#">Contact</a></li>
+    <li><a href="index.html">Home</a></li><li><a href="about.html" aria-current="page">About</a></li><li><a href="services.html">Services</a></li><li><a href="index.html#work">Portfolio</a></li><li><a href="index.html#case">Case Studies</a></li><li><a href="#">Blog</a></li><li><a href="careers.html">Careers</a></li><li><a href="#">Contact</a></li>
    </ul>
   </nav>
   <button class="btn p" type="button" data-book>Book a Growth Call</button>
@@ -518,7 +518,7 @@ fieldset{border:0;margin:0 0 16px;padding:0}
 const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s),ic=n=>`<i class="i" aria-hidden="true">${n}</i>`;
 const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
 /* ---- Content (edit here) ---- */
-const SERVICES=[["Performance Marketing"],["Social Media Marketing"],["Branding & Strategy"],["Content & Creative Studio"],["SEO & Organic Growth"],["Website Design & Development"],["Lead Generation & Analytics"]].map(s=>[0,s[0]]);
+const SERVICES=[["Performance Marketing"],["Social Media Marketing"],["Branding & Strategy"],["Content & Creative Studio"],["SEO & Organic Growth"],["Website Design & Development"],["Lead Generation & Analytics"]].map((s,i)=>[["performance-marketing","social-media","branding-strategy","content-creative","seo","website","lead-generation"][i],s[0]]);
 const BELIEFS=[["Clarity beats noise.","Posting more isn’t a strategy. We start with who you’re for, what you say and why it matters — then decide where to show up."],["Creative and performance belong together.","Ideas that stop the scroll and campaigns that convert are built by one team, around one goal."],["If it can’t be measured, it can’t be improved.","Tracking goes in before launch, so every decision is based on what actually happened — not on gut feel."],["Growth is a system, not a post.","Brand, content, media, website and data work best when they’re connected. So that’s how we build them."]];
 const VALUES=[["task_alt","Ownership","We treat your goals like our own and follow through without being chased.","#FFE0EC","#B8217F"],["visibility","Clarity First","Plain language and honest advice — even when the answer is “don’t do that”.","#EFE3FB","#6B35B0"],["lightbulb","Curiosity","We test, learn and keep asking why something worked, so the next move is smarter.","#FFEBCF","#A85D00"],["brush","Craft","Details matter. Good work looks right, reads right and works right.","#FFDCE4","#C0213F"],["monitoring","Transparency","You always know what we’re doing, what it costs and what it delivered.","#DDF3EA","#1E7A5C"],["handshake","Partnership","We win when you win. Long-term growth over quick vanity wins.","#DCEFFB","#1F5F99"]];
 const STEPS=[["search","Discover","We learn your business, audience, numbers and goals.","#EFE3FB","#6B35B0"],["explore","Strategy","Who to reach, what to say, where — and how we’ll measure it.","#FFE0EC","#B8217F"],["brush","Create","Content, creative, pages and campaigns built to the plan.","#FFEBCF","#A85D00"],["rocket_launch","Launch","We go live with tracking set up from day one.","#DCEFFB","#1F5F99"],["tune","Optimise","Test, learn and push budget toward what’s working.","#FFDCE4","#C0213F"],["bar_chart","Report","Plain-language reports: what moved, why, and what’s next.","#DDF3EA","#1E7A5C"]];
@@ -533,7 +533,7 @@ $("#ps").innerHTML=STEPS.map((s,i)=>`<li><div class="ib" ${tint(s[3],s[4])}>${ic
 $("#rh").insertAdjacentHTML("beforeend",RHYTHM.map(r=>`<div class="rc"><small>${r[0]}</small><h3>${r[1]}</h3><p>${r[2]}</p></div>`).join(""));
 $("#tm").innerHTML=TEAM.map(t=>`<li><div class="ph" role="img" aria-label="Placeholder portrait: ${t[0]}" data-l="Team photo (4:5)" style="--a:${t[1]};--b:${t[2]}"></div><div><b>[Team member]</b><span>${t[0]}</span></div></li>`).join("");
 $("#sd").innerHTML=STANDARDS.map(s=>`<li class="sdc"><div class="ib">${ic("verified")}</div><div><h3>${s[0]}</h3><p>${s[1]}</p></div></li>`).join("");
-$("#fs").innerHTML=SERVICES.map(s=>`<li><a href="index.html#services">${s[1]}</a></li>`).join("");
+$("#fs").innerHTML=SERVICES.map(s=>`<li><a href="services.html#${s[0]}">${s[1]}</a></li>`).join("");
 $("#sv").innerHTML=`<option value="">Choose a service</option>`+SERVICES.map(s=>`<option>${s[1]}</option>`).join("")+`<option>Not sure yet</option>`;
 /* ---- Header & nav ---- */
 const hdr=$("#hdr"),mb=$("#mb"),nav=$("#nav");
