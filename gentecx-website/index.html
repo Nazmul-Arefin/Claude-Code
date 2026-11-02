@@ -306,7 +306,7 @@ fieldset{border:0;margin:0 0 16px;padding:0}
   <button class="mb" id="mb" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><i class="i" aria-hidden="true">menu</i></button>
   <nav id="nav" aria-label="Main">
    <ul>
-    <li><a href="#top" aria-current="page">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="#work">Portfolio</a></li><li><a href="#case">Case Studies</a></li><li><a href="#">Blog</a></li><li><a href="careers.html">Careers</a></li><li><a href="#">Contact</a></li>
+    <li><a href="#top" aria-current="page">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="#case">Case Studies</a></li><li><a href="#">Blog</a></li><li><a href="careers.html">Careers</a></li><li><a href="#">Contact</a></li>
    </ul>
   </nav>
   <button class="btn p" type="button" data-book>Book a Growth Call</button>
@@ -385,7 +385,7 @@ fieldset{border:0;margin:0 0 16px;padding:0}
     <h2 id="h-w">Proof Beats <span class="g">Hype</span></h2>
     <p class="sub">A few projects and the thinking behind them — what the goal was, what we built and what changed.</p>
    </div>
-   <a class="btn s" href="#">Explore All Work <i class="i" aria-hidden="true">arrow_forward</i></a>
+   <a class="btn s" href="portfolio.html">Explore All Work <i class="i" aria-hidden="true">arrow_forward</i></a>
   </div>
   <ul class="wg" id="wg"></ul>
   <p class="dm">Sample project cards. Replace with approved work and verified outcomes before launch.</p>
@@ -493,7 +493,7 @@ fieldset{border:0;margin:0 0 16px;padding:0}
   <div class="fg">
    <div><a class="logo" href="#top">gentecx<small>Growing | Innovation | Solution</small></a><p class="sub" style="max-width:24em">Strategy, creative and performance working as one — to help ambitious brands grow.</p></div>
    <div><h3>Services</h3><ul id="fs"></ul></div>
-   <div><h3>Company</h3><ul><li><a href="about.html">About</a></li><li><a href="#work">Portfolio</a></li><li><a href="#case">Case Studies</a></li><li><a href="#">Blog</a></li><li><a href="careers.html">Careers</a></li><li><a href="#">Contact</a></li></ul></div>
+   <div><h3>Company</h3><ul><li><a href="about.html">About</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="#case">Case Studies</a></li><li><a href="#">Blog</a></li><li><a href="careers.html">Careers</a></li><li><a href="#">Contact</a></li></ul></div>
    <div><h3>Get in touch</h3><ul><li>[Email placeholder]</li><li>[Phone placeholder]</li><li>[Address placeholder]</li><li><a href="#">LinkedIn</a> · <a href="#">Facebook</a> · <a href="#">Instagram</a></li></ul></div>
   </div>
   <div class="fb"><span>© 2026 Gentecx. All rights reserved.</span><span><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></span></div>
@@ -556,7 +556,7 @@ $("#lr").innerHTML=Array.from({length:6},(_,i)=>`<div class="ph" data-l="Client 
 $("#pg").innerHTML=PROBLEMS.map(p=>`<li class="pc"><div class="ib" ${tint(p[3],p[4])}>${ic(p[0])}</div><div><h3>${p[1]}</h3><p>${p[2]}</p></div></li>`).join("");
 const SLUGS=["performance-marketing", "social-media", "branding-strategy", "content-creative", "seo", "website", "lead-generation"];
 $("#sg").innerHTML=SERVICES.map((s,i)=>`<li class="sv"><div class="ib sq" ${tint(s[4],s[5])}>${ic(s[0])}</div><h3>${s[1]}</h3><p>${s[2]}</p><a class="tl" href="services.html#${SLUGS[i]}">${s[3]} ${ic("arrow_forward")}</a></li>`).join("")+`<li class="sv cta"><p class="hw">Not sure where to start?</p><h3>Let’s find your biggest growth lever first.</h3><p>One call. Clear priorities. No jargon.</p><button class="btn p" type="button" data-book>Show Me the Game Plan</button></li>`;
-$("#wg").innerHTML=WORK.map(w=>`<li class="wc"><div class="ph" role="img" aria-label="Placeholder project image: ${w[0]}" data-l="${w[0]} project · image (16:11)" style="--a:${w[3]};--b:${w[4]}"></div><div class="wb"><div class="tg"><span class="bg">${w[0]}</span><span class="bg n">${w[1]}</span></div><h3>${w[2]}</h3><p class="oc">${ic("insights")}<span>Outcome: [add verified result + time period]</span></p><a class="tl" href="#">Read the Case Study ${ic("arrow_forward")}</a></div></li>`).join("");
+$("#wg").innerHTML=WORK.map(w=>`<li class="wc"><div class="ph" role="img" aria-label="Placeholder project image: ${w[0]}" data-l="${w[0]} project · image (16:11)" style="--a:${w[3]};--b:${w[4]}"></div><div class="wb"><div class="tg"><span class="bg">${w[0]}</span><span class="bg n">${w[1]}</span></div><h3>${w[2]}</h3><p class="oc">${ic("insights")}<span>Outcome: [add verified result + time period]</span></p><a class="tl" href="portfolio.html#work">Read the Case Study ${ic("arrow_forward")}</a></div></li>`).join("");
 $("#ps").innerHTML=STEPS.map((s,i)=>`<li><div class="ib" ${tint(s[3],s[4])}>${ic(s[0])}</div><span class="n">0${i+1}</span><h3>${s[1]}</h3><p>${s[2]}</p></li>`).join("");
 $("#dg").innerHTML=WHY.map(d=>`<li class="dc"><div class="ib sq" ${tint(d[3],d[4])}>${ic(d[0])}</div><h3>${d[1]}</h3><p>${d[2]}</p></li>`).join("");
 $("#tst").innerHTML=STORIES.map(s=>`<figure class="tc"><span class="q" aria-hidden="true">“</span><div class="st" role="img" aria-label="5 out of 5">${ic("star").repeat(5)}</div><p>${s[2]}</p><figcaption class="who"><div class="ph" role="img" aria-label="Placeholder portrait" data-l=""></div><div><b>${s[0]}</b><span>${s[1]}</span></div></figcaption></figure>`).join("");
