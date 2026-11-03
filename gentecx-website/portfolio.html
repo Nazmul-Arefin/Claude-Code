@@ -381,7 +381,7 @@ fieldset{border:0;margin:0 0 16px;padding:0}
   <button class="mb" id="mb" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><i class="i" aria-hidden="true">menu</i></button>
   <nav id="nav" aria-label="Main">
    <ul>
-    <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html" aria-current="page">Portfolio</a></li><li><a href="index.html#case">Case Studies</a></li><li><a href="#">Blog</a></li><li><a href="careers.html">Careers</a></li><li><a href="#">Contact</a></li>
+    <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html" aria-current="page">Portfolio</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="#">Blog</a></li><li><a href="careers.html">Careers</a></li><li><a href="#">Contact</a></li>
    </ul>
   </nav>
   <button class="btn p" type="button" data-book>Book a Growth Call</button>
@@ -477,7 +477,7 @@ fieldset{border:0;margin:0 0 16px;padding:0}
   <div class="fg">
    <div><a class="logo" href="index.html">gentecx<small>Growing | Innovation | Solution</small></a><p class="sub" style="max-width:24em">Strategy, creative and performance working as one — to help ambitious brands grow.</p></div>
    <div><h3>Services</h3><ul id="fs"></ul></div>
-   <div><h3>Company</h3><ul><li><a href="about.html">About</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="index.html#case">Case Studies</a></li><li><a href="#">Blog</a></li><li><a href="careers.html">Careers</a></li><li><a href="#">Contact</a></li></ul></div>
+   <div><h3>Company</h3><ul><li><a href="about.html">About</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="#">Blog</a></li><li><a href="careers.html">Careers</a></li><li><a href="#">Contact</a></li></ul></div>
    <div><h3>Get in touch</h3><ul><li>[Email placeholder]</li><li>[Phone placeholder]</li><li>[Address placeholder]</li><li><a href="#">LinkedIn</a> · <a href="#">Facebook</a> · <a href="#">Instagram</a></li></ul></div>
   </div>
   <div class="fb"><span>© 2026 Gentecx. All rights reserved.</span><span><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></span></div>
@@ -570,10 +570,11 @@ $("#pjg").addEventListener("click",e=>{if(!e.target.closest("#clr"))return;fInd=
 renderWork();
 /* ---- Case study drawer ---- */
 const cs=$("#cs");let csI=0;
+const FULL=["school-admissions","fashion-ugc","clinic-website"]; // projects with a full story on case-studies.html
 function openCase(i){
  csI=i;const p=PROJECTS[i],n=PROJECTS.length,pv=PROJECTS[(i-1+n)%n],nx=PROJECTS[(i+1)%n];
  const steps=[["01","The Challenge",p[4]],["02","The Insight",p[11]],["03","The Strategy",p[12]],["04","The Execution",p[13]],["05","The Outcome",p[7]?"This is concept work, so there are no live results to report.":"Verified results, the period measured and the context behind them.",p[6]],["06","What’s Next",p[14]]];
- $("#csb").innerHTML=`<div class="ph" role="img" aria-label="Placeholder: ${p[0]} hero image" data-l="${p[0]} · case study image (16:9)" style="--a:${p[8]};--b:${p[9]}"></div>${tags(p)}<h2 id="cs-t">${p[0]}</h2><div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">${label(p,' style="position:static"')}${dels(p)}</div><ol class="tlx">${steps.map(s=>`<li${s[3]?' class="out"':""}><span class="k">${s[0]}</span><div><h3>${s[1]}</h3><p>${s[2]}</p>${s[3]?`<p class="r">${s[3]}</p>`:""}</div></li>`).join("")}</ol><button class="btn p" type="button" data-book style="width:100%">Get a Plan Like This ${ic("arrow_forward")}</button><div class="csf"><button class="btn s" type="button" data-cs="${(i-1+n)%n}">${ic("arrow_back")} ${pv[0]}</button><button class="btn s" type="button" data-cs="${(i+1)%n}">${nx[0]} ${ic("arrow_forward")}</button></div>`;
+ $("#csb").innerHTML=`<div class="ph" role="img" aria-label="Placeholder: ${p[0]} hero image" data-l="${p[0]} · case study image (16:9)" style="--a:${p[8]};--b:${p[9]}"></div>${tags(p)}<h2 id="cs-t">${p[0]}</h2><div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">${label(p,' style="position:static"')}${dels(p)}</div><ol class="tlx">${steps.map(s=>`<li${s[3]?' class="out"':""}><span class="k">${s[0]}</span><div><h3>${s[1]}</h3><p>${s[2]}</p>${s[3]?`<p class="r">${s[3]}</p>`:""}</div></li>`).join("")}</ol>${FULL[i]?`<a class="btn s" href="case-studies.html#${FULL[i]}" style="width:100%;margin-bottom:10px">Read the Full Story ${ic("arrow_forward")}</a>`:""}<button class="btn p" type="button" data-book style="width:100%">Get a Plan Like This ${ic("arrow_forward")}</button><div class="csf"><button class="btn s" type="button" data-cs="${(i-1+n)%n}">${ic("arrow_back")} ${pv[0]}</button><button class="btn s" type="button" data-cs="${(i+1)%n}">${nx[0]} ${ic("arrow_forward")}</button></div>`;
  if(!cs.open)cs.showModal();cs.scrollTop=0;$("#cs-x").focus();
 }
 document.addEventListener("click",e=>{const b=e.target.closest("[data-cs]");if(b)openCase(+b.dataset.cs)});
